@@ -1,0 +1,206 @@
+/* ===== セクション共通スタイル ===== */
+section {
+  position: relative;
+  overflow: hidden;
+}
+
+.py-16 {
+  padding: 4rem 0;
+}
+
+/* ===== サービスセクション ===== */
+#services {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.05) 0%,
+    rgba(255, 255, 255, 0.02) 100%
+  );
+}
+
+#services .v-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+#services .v-card:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(25, 118, 210, 0.3);
+}
+
+#services .v-avatar {
+  transition: all 0.3s ease;
+}
+
+#services .v-card:hover .v-avatar {
+  transform: scale(1.1) rotate(5deg);
+}
+
+/* ===== ポートフォリオセクション ===== */
+#portfolio {
+  background: linear-gradient(
+    135deg,
+    rgba(18, 18, 18, 0.95) 0%,
+    rgba(30, 30, 30, 0.95) 100%
+  );
+}
+
+#portfolio .bg-surface {
+  background: transparent !important;
+}
+
+/* ===== Aboutセクション ===== */
+#about {
+  background: radial-gradient(
+    circle at center,
+    rgba(25, 118, 210, 0.05) 0%,
+    transparent 70%
+  );
+}
+
+#about .v-avatar {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: 3px solid rgba(25, 118, 210, 0.3);
+}
+
+/* ===== コンタクトセクション ===== */
+#contact {
+  position: relative;
+}
+
+#contact::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 0.9) 0%,
+    rgba(0, 0, 0, 0.9) 100%
+  );
+  z-index: 1;
+}
+
+#contact > * {
+  position: relative;
+  z-index: 2;
+}
+
+#contact .v-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+}
+
+#contact .v-text-field,
+#contact .v-textarea {
+  transition: all 0.3s ease;
+}
+
+#contact .v-text-field:focus-within,
+#contact .v-textarea:focus-within {
+  transform: translateY(-2px);
+}
+
+/* ===== フッター ===== */
+.footer-section {
+  background: linear-gradient(
+    135deg,
+    rgba(18, 18, 18, 0.95) 0%,
+    rgba(30, 30, 30, 0.95) 100%
+  );
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* ===== カード効果 ===== */
+.service-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.service-card:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* ===== テキストアニメーション ===== */
+.text-reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.text-reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== ボタンアニメーション ===== */
+.btn-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-shimmer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: left 0.5s;
+}
+
+.btn-shimmer:hover::before {
+  left: 100%;
+}
+
+/* ===== レスポンシブ調整 ===== */
+@media (max-width: 768px) {
+  .py-16 {
+    padding: 2rem 0;
+  }
+
+  #services .v-card {
+    margin-bottom: 2rem;
+  }
+
+  #about .v-avatar {
+    width: 200px !important;
+    height: 200px !important;
+  }
+
+  #about .v-avatar .v-icon {
+    font-size: 100px !important;
+  }
+
+  #contact .v-card {
+    padding: 1.5rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .py-16 {
+    padding: 1.5rem 0;
+  }
+
+  #about .v-avatar {
+    width: 150px !important;
+    height: 150px !important;
+  }
+
+  #about .v-avatar .v-icon {
+    font-size: 75px !important;
+  }
+}
