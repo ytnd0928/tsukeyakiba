@@ -1,6 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  compatibilityDate: "2025-07-16",
+  compatibilityDate: "2024-04-03",
   devtools: { enabled: true },
   modules: ["@vueuse/nuxt"],
   css: [
@@ -16,13 +16,7 @@ export default defineNuxtConfig({
     transpile: ["vuetify"],
   },
   nitro: {
-    preset: "aws-amplify",
-    experimental: {
-      wasm: true,
-    },
-  },
-  experimental: {
-    payloadExtraction: false,
+    preset: "node",
   },
   app: {
     head: {

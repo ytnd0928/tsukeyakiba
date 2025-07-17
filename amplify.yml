@@ -8,9 +8,9 @@ frontend:
         - npm ci --prefer-offline --no-audit --legacy-peer-deps
     build:
       commands:
-        - npm run generate
+        - npm run build
   artifacts:
-    baseDirectory: .amplify-hosting/static
+    baseDirectory: .output/public
     files:
       - "**/*"
   cache:
