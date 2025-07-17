@@ -2,6 +2,7 @@
 export default defineNuxtConfig({
   compatibilityDate: "2024-04-03",
   devtools: { enabled: true },
+  ssr: false,
   modules: ["@vueuse/nuxt"],
   css: [
     "vuetify/lib/styles/main.sass",
@@ -16,7 +17,7 @@ export default defineNuxtConfig({
     transpile: ["vuetify"],
   },
   nitro: {
-    preset: "node",
+    preset: "static",
   },
   app: {
     head: {

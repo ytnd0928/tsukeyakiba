@@ -6,9 +6,9 @@ frontend:
         - node --version
         - npm --version
         - npm ci --prefer-offline --no-audit --legacy-peer-deps
-    build:
-      commands:
-        - npm run build
+      build:
+    commands:
+      - npm run generate
   artifacts:
     baseDirectory: .output/public
     files:
