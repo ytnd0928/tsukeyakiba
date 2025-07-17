@@ -22,3 +22,6 @@ logs
 .env
 .env.*
 !.env.example
+
+# AWS Amplify build outputs (exclude from repository)
+.amplify-hosting/
