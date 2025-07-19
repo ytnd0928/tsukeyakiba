@@ -126,7 +126,7 @@
                 お気軽にお問い合わせください
               </p>
               <h2 class="text-h5 font-weight-bold mt-10 mb-4 reveal">
-                <span class="text-white">hogehoge@gmail.com</span>
+                <span class="text-white">tsukeyakibapro@gmail.com</span>
               </h2>
             </v-col>
           </v-row>
