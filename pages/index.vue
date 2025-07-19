@@ -91,9 +91,7 @@
 
           <v-row align="center">
             <v-col cols="12" md="6" class="reveal">
-              <h3 class="text-h4 font-weight-bold mb-4">
-                TSUKEYAKIBA Production
-              </h3>
+              <h3 class="text-h4 font-weight-bold mb-4">TSUKEYAKIBA</h3>
               <p class="text-body-1 mb-4">
                 私たちは写真撮影、Web制作、プラットフォーム開発、オーディオビジュアルアートを通じて、
                 クリエイティブな表現と最新技術を融合させたソリューションを提供しています。
@@ -142,7 +140,7 @@ import VideoSection from "~/components/sections/VideoSection.vue";
 
 // ページメタデータ
 useHead({
-  title: "TSUKEYAKIBA Production - Photography & Digital Innovation",
+  title: "TSUKEYAKIBA - Photography & Digital Innovation",
   meta: [
     {
       name: "description",

@@ -21,7 +21,7 @@ export default defineNuxtConfig({
   },
   app: {
     head: {
-      title: "TSUKEYAKIBA Production - Photography & Digital Innovation",
+      title: "TSUKEYAKIBA - Photography & Digital Innovation",
       meta: [
         { charset: "utf-8" },
         { name: "viewport", content: "width=device-width, initial-scale=1" },

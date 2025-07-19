@@ -12,7 +12,7 @@
         class="text-h5 font-weight-bold cursor-pointer logo-text"
         @click="scrollToSection('top')"
       >
-        <span class="gradient-text">TSUKEYAKIBA Production</span>
+        <span class="gradient-text">TSUKEYAKIBA</span>
       </v-app-bar-title>
 
       <v-spacer />
