@@ -1,7 +1,7 @@
 <template>
   <v-app-bar
     :elevation="scrollY > 50 ? 4 : 0"
-    :color="scrollY > 50 ? 'background' : 'transparent'"
+    color="grey-lighten-4"
     :class="['smooth-transition', { scrolled: scrollY > 50 }]"
     fixed
     app
@@ -9,7 +9,7 @@
     <v-container fluid class="d-flex align-center">
       <!-- ロゴ -->
       <v-app-bar-title
-        class="text-h5 font-weight-bold cursor-pointer logo-text"
+        class="text-h5 font-weight-bold cursor-pointer logo-text d-flex align-center"
         @click="scrollToSection('top')"
       >
         <img src="@/assets/images/logo.png" alt="Logo" class="logo-image" />
@@ -30,18 +30,6 @@
           @click="scrollToSection(item.section)"
         >
           {{ item.title }}
-        </v-btn>
-
-        <!-- テーマ切替ボタン -->
-        <v-btn
-          icon
-          variant="text"
-          @click="toggleTheme"
-          class="ml-2 theme-toggle"
-        >
-          <v-icon>{{
-            isDark ? "mdi-weather-sunny" : "mdi-weather-night"
-          }}</v-icon>
         </v-btn>
       </div>
     </v-container>
@@ -64,29 +52,17 @@
         >
           <v-list-item-title>{{ item.title }}</v-list-item-title>
         </v-list-item>
-
-        <v-divider class="my-2" />
-
-        <v-list-item @click="toggleTheme">
-          <v-list-item-title>
-            <v-icon class="mr-2">{{
-              isDark ? "mdi-weather-sunny" : "mdi-weather-night"
-            }}</v-icon>
-            {{ isDark ? "ライトモード" : "ダークモード" }}
-          </v-list-item-title>
-        </v-list-item>
       </v-list>
     </v-navigation-drawer>
   </v-app-bar>
 </template>
 
 <script setup>
-import { ref, computed } from "vue";
-import { useDisplay, useTheme } from "vuetify";
+import { ref } from "vue";
+import { useDisplay } from "vuetify";
 import { useWindowScroll } from "@vueuse/core";
 
 const { mobile } = useDisplay();
-const theme = useTheme();
 const { y: scrollY } = useWindowScroll();
 
 const drawer = ref(false);
@@ -98,12 +74,6 @@ const menuItems = ref([
   { title: "About", section: "about" },
   { title: "お問い合わせ", section: "contact" },
 ]);
-
-const isDark = computed(() => theme.global.name.value === "dark");
-
-const toggleTheme = () => {
-  theme.global.name.value = isDark.value ? "light" : "dark";
-};
 
 const scrollToSection = (sectionId) => {
   if (sectionId === "top") {

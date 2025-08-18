@@ -107,4 +107,4 @@ bun run preview
 
 ---
 
-© 2024 TSUKEYAKIBA Production. All rights reserved.
+© 2025 CyAnn All rights reserved.

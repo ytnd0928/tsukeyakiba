@@ -5,7 +5,11 @@
   position: relative;
   transition: all 0.3s ease;
   text-transform: none !important;
-  font-weight: 500;
+  font-weight: bold !important;
+  background: linear-gradient(45deg, #000000, #00faff) !important;
+  background-clip: text !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
 }
 
 .nav-btn::after {
@@ -50,8 +54,28 @@
 }
 
 .v-app-bar.scrolled {
-  background-color: rgba(16, 152, 183, 0.9) !important;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 255, 234, 0.9),
+    rgba(0, 0, 0, 0.9)
+  ) !important;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.v-app-bar.scrolled .nav-btn {
+  color: transparent !important;
+  font-weight: bold !important;
+  background: linear-gradient(45deg, #ffffff, #00faff) !important;
+  background-clip: text !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+.v-app-bar.scrolled .gradient-text {
+  background: linear-gradient(45deg, #ffffff, #00faff, #ffffff) !important;
+  background-clip: text !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
 }
 
 /* テーマ切替ボタン */

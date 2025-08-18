@@ -1,5 +1,6 @@
 <template>
   <v-app>
+    <div class="custom-cursor" ref="cursor"></div>
     <!-- ナビゲーション -->
     <AppNavigation />
 
@@ -24,6 +25,41 @@
 </template>
 
 <script setup>
+import { ref, onMounted, onUnmounted } from "vue";
+import AppNavigation from "~/components/AppNavigation.vue";
+
+const cursor = ref(null);
+
+const updateCursor = (e) => {
+  if (cursor.value) {
+    cursor.value.style.left = e.clientX - 10 + "px";
+    cursor.value.style.top = e.clientY - 10 + "px";
+  }
+};
+
+const handleMouseDown = () => {
+  if (cursor.value) {
+    cursor.value.classList.add("clicking");
+  }
+};
+
+const handleMouseUp = () => {
+  if (cursor.value) {
+    cursor.value.classList.remove("clicking");
+  }
+};
+
+onMounted(() => {
+  document.addEventListener("mousemove", updateCursor);
+  document.addEventListener("mousedown", handleMouseDown);
+  document.addEventListener("mouseup", handleMouseUp);
+});
+
+onUnmounted(() => {
+  document.removeEventListener("mousemove", updateCursor);
+  document.removeEventListener("mousedown", handleMouseDown);
+  document.removeEventListener("mouseup", handleMouseUp);
+});
 // レイアウト設定
 useHead({
   htmlAttrs: {

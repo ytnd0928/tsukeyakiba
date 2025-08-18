@@ -1,10 +1,28 @@
 /* ===== 共通スタイル ===== */
 * {
   box-sizing: border-box;
+  cursor: none;
+}
+
+/* カスタムカーソル */
+.custom-cursor {
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  background: radial-gradient(circle, #00faff 0%, #00faff 70%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transition: transform 0.1s ease;
+}
+
+.custom-cursor.clicking {
+  transform: scale(0.8);
 }
 
 html {
   scroll-behavior: smooth;
+  cursor: none;
 }
 
 body {
@@ -14,17 +32,31 @@ body {
 
 /* ===== ユーティリティクラス ===== */
 .gradient-text {
-  background: linear-gradient(45deg, #ffffff, #ffffff);
+  background: linear-gradient(45deg, #000000, #00faff);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  font-size: 28px;
+  line-height: 1.2;
   padding-bottom: 4px;
 }
 
 .logo-image {
-  width: 40px;
-  height: 40px;
-  margin-right: 8px;
+  width: 48px;
+  height: 48px;
+  margin-right: 12px;
+  vertical-align: middle;
+}
+
+.logo-text {
+  display: flex !important;
+  align-items: center !important;
+  line-height: 40px !important;
+}
+
+.gradient-text {
+  line-height: 40px !important;
+  vertical-align: middle;
 }
 
 .cursor-pointer {
