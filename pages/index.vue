@@ -91,7 +91,7 @@
 
           <v-row align="center">
             <v-col cols="12" md="6" class="reveal">
-              <h3 class="text-h4 font-weight-bold mb-4">TSUKEYAKIBA</h3>
+              <h3 class="text-h4 font-weight-bold mb-4">CyAnn</h3>
               <p class="text-body-1 mb-4">
                 私たちは写真撮影、Web制作、プラットフォーム開発、オーディオビジュアルアートを通じて、
                 クリエイティブな表現と最新技術を融合させたソリューションを提供しています。
@@ -104,7 +104,11 @@
             <v-col cols="12" md="6" class="reveal">
               <div class="text-center">
                 <v-avatar size="300" class="animate-float">
-                  <v-icon size="150" color="primary">mdi-palette</v-icon>
+                  <img
+                    src="@/assets/images/logo.png"
+                    alt="About Image"
+                    class="rounded-lg"
+                  />
                 </v-avatar>
               </div>
             </v-col>

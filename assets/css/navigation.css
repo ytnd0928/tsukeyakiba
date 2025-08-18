@@ -39,7 +39,7 @@
 }
 
 .mobile-drawer .v-list-item:hover {
-  background-color: rgba(25, 118, 210, 0.1);
+  background-color: rgb(38, 198, 20);
   transform: translateX(10px);
 }
 
@@ -50,7 +50,7 @@
 }
 
 .v-app-bar.scrolled {
-  background-color: rgba(18, 18, 18, 0.9) !important;
+  background-color: rgba(16, 152, 183, 0.9) !important;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 

@@ -60,8 +60,13 @@ section {
 }
 
 #about .v-avatar {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  border: 3px solid rgba(25, 118, 210, 0.3);
+  background: linear-gradient(135deg, #08e2ff 0%, #ffffff 100%);
+  border: 5px solid #ffffff;
+}
+
+.rounded-lg {
+  width: 250px;
+  height: 250px;
 }
 
 /* ===== コンタクトセクション ===== */
