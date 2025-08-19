@@ -8,13 +8,14 @@
   >
     <v-container fluid class="d-flex align-center">
       <!-- ロゴ -->
-      <v-app-bar-title
-        class="text-h5 font-weight-bold cursor-pointer logo-text d-flex align-center"
+      <div
+        class="text-h5 font-weight-bold cursor-pointer logo-text d-flex align-center text-no-wrap"
         @click="scrollToSection('top')"
+        style="max-width: none !important; width: auto !important"
       >
         <img src="@/assets/images/logo.png" alt="Logo" class="logo-image" />
         <span class="gradient-text">CyAnn</span>
-      </v-app-bar-title>
+      </div>
 
       <v-spacer />
 
