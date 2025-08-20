@@ -14,9 +14,7 @@
       <v-container>
         <v-row align="center" justify="center">
           <v-col cols="auto">
-            <span class="text-body-2">
-              © 2024 TSUKEYAKIBA Production. All rights reserved.
-            </span>
+            <span class="text-body-2"> © 2025 CyAnn All rights reserved. </span>
           </v-col>
         </v-row>
       </v-container>

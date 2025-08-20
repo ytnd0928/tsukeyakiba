@@ -17,7 +17,7 @@
       <v-row align="center" justify="center" class="min-height-screen">
         <v-col cols="12" md="10" lg="8" class="text-center">
           <!-- メインタイトル -->
-          <h1 class="hero-title animate-fadeInUp">TSUKEYAKIBA</h1>
+          <h1 class="hero-title animate-fadeInUp">CyAnn</h1>
 
           <!-- サブタイトル -->
           <p class="hero-subtitle animate-fadeInUp animation-delay-1">

@@ -144,7 +144,7 @@ import VideoSection from "~/components/sections/VideoSection.vue";
 
 // ページメタデータ
 useHead({
-  title: "TSUKEYAKIBA - Photography & Digital Innovation",
+  title: "CyAnn - Photography & Digital Innovation",
   meta: [
     {
       name: "description",
