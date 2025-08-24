@@ -60,13 +60,18 @@ section {
 }
 
 #about .v-avatar {
-  background: linear-gradient(135deg, #08e2ff 0%, #ffffff 100%);
+  background: linear-gradient(1deg, #12c1ca 0%, #000000 100%);
   border: 5px solid #ffffff;
 }
 
 .rounded-lg {
-  width: 120px;
-  height: 120px;
+  width: 240px;
+  height: 240px;
+}
+
+.profile-image {
+  width: 440px;
+  height: 440px;
 }
 
 /* ===== コンタクトセクション ===== */
@@ -107,6 +112,27 @@ section {
 #contact .v-text-field:focus-within,
 #contact .v-textarea:focus-within {
   transform: translateY(-2px);
+}
+
+/* ===== SNSアイコン ===== */
+.social-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.social-icon {
+  transition: all 0.3s ease;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.social-icon:hover {
+  transform: translateY(-4px) scale(1.1);
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 25px rgba(255, 255, 255, 0.15);
 }
 
 /* ===== フッター ===== */
