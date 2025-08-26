@@ -8,45 +8,99 @@
       <VideoSection />
 
       <!-- サービスセクション -->
-      <section id="services" class="py-16">
+      <section id="services" class="py-20 services-section">
+        <!-- 背景パーティクル -->
+        <div class="services-particles">
+          <div
+            v-for="i in 30"
+            :key="i"
+            class="service-particle"
+            :style="getServiceParticleStyle(i)"
+          />
+        </div>
+
+        <!-- 背景グラデーション -->
+        <div class="services-gradient"></div>
+
         <v-container>
           <v-row>
-            <v-col cols="12" class="text-center mb-12">
-              <h2 class="text-h3 font-weight-bold mb-4 reveal">
-                <span class="gradient-text">Services</span>
+            <v-col cols="12" class="text-center mb-16">
+              <h2 class="services-title reveal">
+                <span class="gradient-text-enhanced">Services</span>
               </h2>
-              <p class="text-h6 opacity-80 reveal">
-                創造性と技術を融合したクリエイティブソリューション
-              </p>
+              <div class="services-subtitle-container reveal">
+                <div class="services-line"></div>
+                <p class="services-subtitle">
+                  創造性と技術を融合したクリエイティブソリューション
+                </p>
+                <div class="services-line"></div>
+              </div>
             </v-col>
           </v-row>
 
-          <v-row>
+          <v-row class="services-grid">
             <v-col
               cols="12"
-              md="6"
+              sm="6"
               lg="3"
               v-for="(service, index) in services"
               :key="service.title"
               class="mb-8"
             >
-              <v-card
-                class="h-100 hover-lift reveal service-card"
-                elevation="4"
-                :style="{ animationDelay: `${index * 0.1}s` }"
+              <div
+                class="service-card-wrapper reveal"
+                :style="{ animationDelay: `${index * 0.15}s` }"
               >
-                <div class="text-center pa-6">
-                  <v-avatar size="80" class="mb-4" :color="service.color">
-                    <v-icon size="40" color="white">{{ service.icon }}</v-icon>
-                  </v-avatar>
-                  <h3 class="text-h5 font-weight-bold mb-3">
-                    {{ service.title }}
-                  </h3>
-                  <p class="text-body-1 opacity-80">
-                    {{ service.description }}
-                  </p>
+                <div class="service-card" :class="`service-${service.color}`">
+                  <!-- カード背景エフェクト -->
+                  <div class="card-glow"></div>
+                  <div class="card-pattern"></div>
+
+                  <!-- カード内容 -->
+                  <div class="service-content">
+                    <!-- アイコンコンテナ -->
+                    <div class="service-icon-container">
+                      <div
+                        class="service-icon-bg"
+                        :class="`bg-${service.color}`"
+                      >
+                        <div class="icon-inner">
+                          <v-icon size="32" color="white">{{
+                            service.icon
+                          }}</v-icon>
+                        </div>
+                      </div>
+                      <div class="service-number">
+                        {{ String(index + 1).padStart(2, "0") }}
+                      </div>
+                    </div>
+
+                    <!-- テキストコンテンツ -->
+                    <div class="service-text">
+                      <h3 class="service-title">{{ service.title }}</h3>
+                      <p class="service-description">
+                        {{ service.description }}
+                      </p>
+                    </div>
+
+                    <!-- アクションボタン -->
+                    <div class="service-action">
+                      <v-btn
+                        variant="text"
+                        :color="service.color"
+                        class="service-btn"
+                        size="small"
+                      >
+                        詳細を見る
+                        <v-icon right size="16">mdi-arrow-right</v-icon>
+                      </v-btn>
+                    </div>
+                  </div>
+
+                  <!-- ホバーオーバーレイ -->
+                  <div class="service-overlay"></div>
                 </div>
-              </v-card>
+              </div>
             </v-col>
           </v-row>
         </v-container>
@@ -108,6 +162,11 @@
               <p class="text-body-1 mb-4">
                 3DCGグラフィックを用いて、オーディオヴィジュアル領域で活動したのち、
                 webアプリーケーションエンジニアとしてフロントエンド、バックエンド開発に従事
+              </p>
+              <p class="text-body-1 mb-2">使用技術</p>
+              <p class="text-body-1 mb-4">
+                Ruby on Rails / Vue.js / Nuxt3.js / JavaScript / TypeScript / C#
+                / Unity / Blender / After Effects / Premiere Pro / Photoshop /
               </p>
             </v-col>
             <v-col cols="12" md="6" class="reveal">
@@ -258,4 +317,38 @@ onMounted(() => {
     observer.observe(el);
   });
 });
+
+// パーティクルのスタイルを生成
+const getParticleStyle = (index) => {
+  const delay = Math.random() * 5;
+  const duration = 3 + Math.random() * 4;
+  const size = 2 + Math.random() * 4;
+
+  return {
+    left: `${Math.random() * 100}%`,
+    top: `${Math.random() * 100}%`,
+    width: `${size}px`,
+    height: `${size}px`,
+    animationDelay: `${delay}s`,
+    animationDuration: `${duration}s`,
+  };
+};
+
+// サービス用パーティクルのスタイルを生成
+const getServiceParticleStyle = (index) => {
+  const delay = Math.random() * 8;
+  const duration = 4 + Math.random() * 6;
+  const size = 1 + Math.random() * 3;
+  const opacity = 0.1 + Math.random() * 0.3;
+
+  return {
+    left: `${Math.random() * 100}%`,
+    top: `${Math.random() * 100}%`,
+    width: `${size}px`,
+    height: `${size}px`,
+    opacity: opacity,
+    animationDelay: `${delay}s`,
+    animationDuration: `${duration}s`,
+  };
+};
 </script>
