@@ -334,21 +334,36 @@ const getParticleStyle = (index) => {
   };
 };
 
-// サービス用パーティクルのスタイルを生成
+// サービス用抽象的パーティクルのスタイルを生成
 const getServiceParticleStyle = (index) => {
-  const delay = Math.random() * 8;
-  const duration = 4 + Math.random() * 6;
-  const size = 1 + Math.random() * 3;
-  const opacity = 0.1 + Math.random() * 0.3;
+  const delay = Math.random() * 20;
+  const baseDuration = [18, 20, 25, 30][index % 4];
+  const duration = baseDuration + Math.random() * 10;
+  const baseSize = 30 + Math.random() * 100;
+  const aspectRatio = 0.3 + Math.random() * 1.4;
+  const opacity = 0.2 + Math.random() * 0.6;
+
+  // 抽象的な配置パターン
+  const patterns = [
+    { left: Math.random() * 100, top: Math.random() * 100 },
+    { left: Math.sin(index) * 30 + 50, top: Math.cos(index) * 30 + 50 },
+    { left: (index * 23) % 100, top: (index * 37) % 100 },
+    {
+      left: Math.pow(Math.random(), 2) * 100,
+      top: Math.pow(Math.random(), 0.5) * 100,
+    },
+  ];
+  const pattern = patterns[index % 4];
 
   return {
-    left: `${Math.random() * 100}%`,
-    top: `${Math.random() * 100}%`,
-    width: `${size}px`,
-    height: `${size}px`,
+    left: `${pattern.left}%`,
+    top: `${pattern.top}%`,
+    width: `${baseSize}px`,
+    height: `${baseSize * aspectRatio}px`,
     opacity: opacity,
     animationDelay: `${delay}s`,
     animationDuration: `${duration}s`,
+    transform: `rotate(${index * 47}deg)`,
   };
 };
 </script>
