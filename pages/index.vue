@@ -90,6 +90,7 @@
                         :color="service.color"
                         class="service-btn"
                         size="small"
+                        @click="navigateToService(service.title)"
                       >
                         詳細を見る
                         <v-icon right size="16">mdi-arrow-right</v-icon>
@@ -142,7 +143,7 @@
         </v-container>
       </section>
       <!-- teamセクション -->
-      <section id="member" class="py-16">
+      <section id="our-team" class="py-16">
         <v-container>
           <v-row>
             <v-col cols="12" class="text-center mb-12">
@@ -160,7 +161,8 @@
                 Web Engineer / VJ / DJ / 3DCG Artist
               </p>
               <p class="text-body-1 mb-4">
-                3DCGグラフィックを用いて、オーディオヴィジュアル領域で活動したのち、
+                <p>1999年生まれ</p>
+                3DCGグラフィックを用いて、VJや映像でのビジュアル制作、VRインスタレーションアートの制作で活動したのち、
                 webアプリーケーションエンジニアとしてフロントエンド、バックエンド開発に従事
               </p>
               <p class="text-body-1 mb-2">使用技術</p>
@@ -182,6 +184,10 @@
             </v-col>
           </v-row>
         </v-container>
+        
+        <!-- チームメンバー間のスペーシング -->
+        <div class="team-member-spacing"></div>
+        
         <v-container>
           <v-row align="center">
             <v-col cols="12" md="6" class="reveal">
@@ -269,28 +275,28 @@ useHead({
 // サービス一覧
 const services = ref([
   {
-    title: "写真撮影",
+    title: "Photography",
     description:
       "プロフェッショナルな写真撮影サービス。ポートレート、イベント、商品撮影まで幅広く対応。",
     icon: "mdi-camera",
     color: "blue",
   },
   {
-    title: "Web制作",
+    title: "Web Development",
     description:
       "モダンで美しいWebサイトの制作。レスポンシブデザインとUX/UIを重視した設計。",
     icon: "mdi-web",
     color: "green",
   },
   {
-    title: "プラットフォーム開発",
+    title: "Platform Development",
     description:
       "Webアプリケーションとモバイルアプリの開発。スケーラブルなシステム構築。",
     icon: "mdi-application",
     color: "purple",
   },
   {
-    title: "オーディオビジュアル",
+    title: "Audio Visual",
     description:
       "VJ、MV制作、3DCGグラフィック、写真と映像の融合展示まで幅広いAV制作。",
     icon: "mdi-movie-open",
@@ -365,5 +371,21 @@ const getServiceParticleStyle = (index) => {
     animationDuration: `${duration}s`,
     transform: `rotate(${index * 47}deg)`,
   };
+};
+
+// サービス詳細ページへのナビゲーション
+const navigateToService = (serviceTitle) => {
+  const router = useRouter();
+  const routes = {
+    "Photography": "/services/photography",
+    "Web Development": "/services/web-development", 
+    "Platform Development": "/services/platform-development",
+    "Audio Visual": "/services/audio-visual"
+  };
+  
+  const route = routes[serviceTitle];
+  if (route) {
+    router.push(route);
+  }
 };
 </script>

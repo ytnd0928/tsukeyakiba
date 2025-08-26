@@ -950,6 +950,11 @@ section {
   height: 440px;
 }
 
+/* ===== チームメンバー間のスペーシング ===== */
+.team-member-spacing {
+  height: 4rem;
+}
+
 /* ===== コンタクトセクション ===== */
 #contact {
   position: relative;
@@ -1092,8 +1097,29 @@ section {
     font-size: 100px !important;
   }
 
+  /* About セクション - 画像サイズ調整 */
+  #about .rounded-lg {
+    width: 160px !important;
+    height: 160px !important;
+  }
+
   #contact .v-card {
     padding: 1.5rem !important;
+  }
+
+  /* Our Team セクション - モバイル調整 */
+  #our-team .v-avatar {
+    width: 200px !important;
+    height: 200px !important;
+  }
+
+  #our-team .text-h4 {
+    font-size: 1.5rem !important;
+  }
+
+  /* チームメンバー間のスペーシング - モバイル調整 */
+  .team-member-spacing {
+    height: 3rem;
   }
 }
 
@@ -1109,5 +1135,26 @@ section {
 
   #about .v-avatar .v-icon {
     font-size: 75px !important;
+  }
+
+  /* About セクション - 小さいモバイル画像サイズ調整 */
+  #about .rounded-lg {
+    width: 120px !important;
+    height: 120px !important;
+  }
+
+  /* Our Team セクション - 小さいモバイル調整 */
+  #our-team .v-avatar {
+    width: 160px !important;
+    height: 160px !important;
+  }
+
+  #our-team .text-h4 {
+    font-size: 1.3rem !important;
+  }
+
+  /* チームメンバー間のスペーシング - 小さいモバイル調整 */
+  .team-member-spacing {
+    height: 2rem;
   }
 }

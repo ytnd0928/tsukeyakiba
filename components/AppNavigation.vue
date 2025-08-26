@@ -10,7 +10,7 @@
       <!-- ロゴ -->
       <div
         class="text-h5 font-weight-bold cursor-pointer logo-text d-flex align-center text-no-wrap"
-        @click="scrollToSection('top')"
+        @click="navigateToHome"
         style="max-width: none !important; width: auto !important"
       >
         <img src="@/assets/images/logo.png" alt="Logo" class="logo-image" />
@@ -28,7 +28,7 @@
           :key="item.title"
           variant="text"
           class="mx-1 nav-btn"
-          @click="scrollToSection(item.section)"
+          @click="handleNavigation(item)"
         >
           {{ item.title }}
         </v-btn>
@@ -47,7 +47,7 @@
           v-for="item in menuItems"
           :key="item.title"
           @click="
-            scrollToSection(item.section);
+            handleNavigation(item);
             drawer = false;
           "
         >
@@ -62,20 +62,51 @@
 import { ref } from "vue";
 import { useDisplay } from "vuetify";
 import { useWindowScroll } from "@vueuse/core";
+import { useRouter, useRoute } from "vue-router";
 
 const { mobile } = useDisplay();
 const { y: scrollY } = useWindowScroll();
+const router = useRouter();
+const route = useRoute();
 
 const drawer = ref(false);
 
 const menuItems = ref([
-  { title: "ホーム", section: "top" },
-  { title: "サービス", section: "services" },
-  { title: "ポートフォリオ", section: "portfolio" },
-  { title: "About", section: "about" },
-  { title: "お問い合わせ", section: "contact" },
+  { title: "Home", section: "top", requiresHome: true },
+  { title: "Services", section: "services", requiresHome: true },
+  { title: "About", section: "about", requiresHome: true },
+  { title: "Our Team", section: "our-team", requiresHome: true },
+  { title: "Contact", section: "contact", requiresHome: true },
 ]);
 
+// ホームページに遷移
+const navigateToHome = () => {
+  if (route.path !== "/") {
+    router.push("/");
+  } else {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+};
+
+// ナビゲーションハンドラー
+const handleNavigation = (item) => {
+  if (item.title === "Home") {
+    navigateToHome();
+  } else if (item.requiresHome && route.path !== "/") {
+    // ホームページ以外にいる場合は、まずホームに遷移してからセクションにスクロール
+    router.push("/").then(() => {
+      // 遷移完了後に少し待ってからスクロール
+      setTimeout(() => {
+        scrollToSection(item.section);
+      }, 100);
+    });
+  } else {
+    // すでにホームページにいる場合は直接スクロール
+    scrollToSection(item.section);
+  }
+};
+
+// セクションにスクロール
 const scrollToSection = (sectionId) => {
   if (sectionId === "top") {
     window.scrollTo({ top: 0, behavior: "smooth" });
