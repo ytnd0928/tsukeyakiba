@@ -235,9 +235,17 @@ body {
     text-align: center !important;
   }
 
-  /* Aboutセクションのロゴ画像をモバイルで小さく */
+  /* プロフィール画像のレスポンシブ対応 */
   .v-avatar[size="300"] {
-    width: 100px !important;
-    height: 100px !important;
+    width: 200px !important;
+    height: 200px !important;
+  }
+  
+  /* より小さい画面での追加調整 */
+  @media (max-width: 480px) {
+    .v-avatar[size="300"] {
+      width: 150px !important;
+      height: 150px !important;
+    }
   }
 }

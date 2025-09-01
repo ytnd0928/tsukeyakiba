@@ -946,8 +946,11 @@ section {
 }
 
 .profile-image {
-  width: 440px;
-  height: 440px;
+  width: 120%;
+  height: 120%;
+  object-fit: cover;
+  object-position: center;
+  transform: scale(1.1);
 }
 
 /* ===== チームメンバー間のスペーシング ===== */

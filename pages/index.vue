@@ -161,7 +161,7 @@
                 Web Engineer / VJ / DJ / 3DCG Artist
               </p>
               <p class="text-body-1 mb-4">
-                <p>1999年生まれ</p>
+                <p>1999、埼玉県生まれ</p>
                 3DCGグラフィックを用いて、VJや映像でのビジュアル制作、VRインスタレーションアートの制作で活動したのち、
                 webアプリーケーションエンジニアとしてフロントエンド、バックエンド開発に従事
               </p>
@@ -170,6 +170,74 @@
                 Ruby on Rails / Vue.js / Nuxt3.js / JavaScript / TypeScript / C#
                 / Unity / Blender / After Effects / Premiere Pro / Photoshop /
               </p>
+              
+              <!-- Noda Social Links -->
+              <div class="social-links mt-6">
+                <v-btn
+                  icon
+                  size="small"
+                  variant="text"
+                  color="pink"
+                  class="mx-1 social-icon"
+                  href="https://www.instagram.com/omatsuri_ofc"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <v-icon size="24">mdi-instagram</v-icon>
+                </v-btn>
+                <v-btn
+                  icon
+                  size="small"
+                  variant="text"
+                  color="white"
+                  class="mx-1 social-icon"
+                  href="https://x.com/nodachan9"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                  </svg>
+                </v-btn>
+                <v-btn
+                  icon
+                  size="small"
+                  variant="text"
+                  color="green"
+                  class="mx-1 social-icon"
+                  href="https://qiita.com/ytnd0928"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M3.57 8.343a3.653 3.653 0 0 1 1.49-1.492 3.653 3.653 0 0 1 3.983.583l3.36 2.52 3.36-2.52a3.653 3.653 0 0 1 3.983-.583 3.653 3.653 0 0 1 1.49 1.492c.37.63.568 1.35.568 2.085v8.017c0 .735-.198 1.456-.568 2.085a3.653 3.653 0 0 1-1.49 1.492 3.653 3.653 0 0 1-3.983-.583L12 18.92l-3.36 2.52a3.653 3.653 0 0 1-3.983.583 3.653 3.653 0 0 1-1.49-1.492A4.28 4.28 0 0 1 2.6 18.446v-8.017c0-.735.198-1.456.568-2.085l.402-.001z"/>
+                  </svg>
+                </v-btn>
+                <v-btn
+                  icon
+                  size="small"
+                  variant="text"
+                  color="white"
+                  class="mx-1 social-icon"
+                  href="https://github.com/ytnd0928"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <v-icon size="24">mdi-github</v-icon>
+                </v-btn>
+                <v-btn
+                  icon
+                  size="small"
+                  variant="text"
+                  color="blue"
+                  class="mx-1 social-icon"
+                  href="https://profile.re-shine.jp/omatsuri"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <v-icon size="24">mdi-web</v-icon>
+                </v-btn>
+              </div>
             </v-col>
             <v-col cols="12" md="6" class="reveal">
               <div class="text-center">
@@ -193,13 +261,58 @@
             <v-col cols="12" md="6" class="reveal">
               <h3 class="text-h4 font-weight-bold mb-4">Tetsushi Nagano</h3>
               <p class="text-body-1 mb-4">Photographer / Artist</p>
-              <p class="text-body-1 mb-4"></p>
+              <p class="text-body-1 mb-4">1999年、東京都生まれ</p>
+              「諸行無常」をテーマに、変わりゆく都市の風景と人々の写真撮影をライフワークとしている。
+大学在学時は、学生団体主催のミス・ミスターコンテストのカメラマンとして、5大学の出場者の写真撮影を担当。
+              
+              <!-- Nagano Social Links -->
+              <div class="social-links mt-6 text-left">
+                <v-btn
+                  icon
+                  size="small"
+                  variant="text"
+                  color="pink"
+                  class="mx-1 social-icon"
+                  href="https://www.instagram.com/nagano_instagram"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <v-icon size="24">mdi-instagram</v-icon>
+                </v-btn>
+                <v-btn
+                  icon
+                  size="small"
+                  variant="text"
+                  color="white"
+                  class="mx-1 social-icon"
+                  href="https://x.com/nagano_twitter"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                  </svg>
+                </v-btn>
+                <v-btn
+                  icon
+                  size="small"
+                  variant="text"
+                  color="blue"
+                  class="mx-1 social-icon"
+                  href="https://nagano-portfolio.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <v-icon size="24">mdi-web</v-icon>
+                </v-btn>
+              </div>
+
             </v-col>
             <v-col cols="12" md="6" class="reveal">
               <div class="text-center">
                 <v-avatar size="300" class="animate-float">
                   <img
-                    src="@/assets/images/noda.jpg"
+                    src="@/assets/images/nagano.JPG"
                     alt="About Image"
                     class="profile-image"
                   />
