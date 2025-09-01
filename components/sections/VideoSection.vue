@@ -1,33 +1,69 @@
 <template>
-  <section id="video-section" class="video-hero-section">
-    <!-- 背景動画 -->
-    <div class="video-background">
-      <video
-        ref="videoRef"
-        src="https://larvaeyet-storage-2936ebd091750-staging.s3.ap-northeast-1.amazonaws.com/public/refrigerator3_2.MP4"
-        autoplay
-        muted
-        loop
-        playsinline
-        preload="auto"
-        class="background-video"
-        @loadeddata="onVideoLoaded"
-        @canplaythrough="onCanPlayThrough"
-        @error="onVideoError"
-      >
-        <!-- フォールバック背景画像 -->
-        Your browser does not support the video tag.
-      </video>
-
-      <!-- フォールバック背景画像 -->
-      <div
-        class="fallback-background"
-        :class="{ 'show-fallback': !videoLoaded }"
-      ></div>
+  <section id="logo-section" class="logo-hero-section">
+    <!-- 背景グラデーション -->
+    <div class="logo-background">
+      <div class="gradient-overlay"></div>
+      
+      <!-- 流体アブストラクト要素 -->
+      <div class="fluid-container">
+        <!-- 液体ブロブ -->
+        <div
+          v-for="i in 12"
+          :key="`blob-${i}`"
+          class="fluid-blob"
+          :style="getFluidBlobStyle(i)"
+        />
+        
+        <!-- 流れる波 -->
+        <div
+          v-for="i in 8"
+          :key="`wave-${i}`"
+          class="flowing-wave"
+          :style="getFlowingWaveStyle(i)"
+        />
+        
+        <!-- 変形する円 -->
+        <div
+          v-for="i in 6"
+          :key="`morph-${i}`"
+          class="morphing-circle"
+          :style="getMorphingCircleStyle(i)"
+        />
+        
+        <!-- 液体パーティクル -->
+        <div
+          v-for="i in 25"
+          :key="`liquid-${i}`"
+          class="liquid-particle"
+          :style="getLiquidParticleStyle(i)"
+        />
+      </div>
     </div>
 
-    <!-- オーバーレイ -->
-    <div class="video-overlay"></div>
+    <!-- メインロゴコンテンツ -->
+    <div class="logo-content">
+      <div class="logo-container" :class="{ 'loaded': logoLoaded }">
+        <img
+          ref="logoRef"
+          src="@/assets/images/logo.png"
+          alt="CyAnn Logo"
+          class="main-logo"
+          @load="onLogoLoaded"
+          @error="onLogoError"
+        />
+        
+        <!-- ロゴの周りのリング効果 -->
+        <div class="logo-ring ring-1"></div>
+        <div class="logo-ring ring-2"></div>
+        <div class="logo-ring ring-3"></div>
+      </div>
+      
+      <!-- タイトルテキスト -->
+      <div class="logo-text-container" :class="{ 'show': logoLoaded }">
+        <h1 class="logo-title">CyAnn</h1>
+        <p class="logo-subtitle">Creative Digital Innovation</p>
+      </div>
+    </div>
 
     <!-- スクロールインジケーター -->
     <div class="scroll-indicator animate-bounce">
@@ -39,55 +75,145 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from "vue";
 
-const videoRef = ref(null);
-const videoLoaded = ref(false);
+const logoRef = ref(null);
+const logoLoaded = ref(false);
 
-const onVideoLoaded = () => {
-  console.log("Video data loaded successfully from S3");
+const onLogoLoaded = () => {
+  console.log("Logo loaded successfully");
+  logoLoaded.value = true;
+  
+  // ロゴ読み込み後のアニメーション開始
+  setTimeout(() => {
+    startLogoAnimations();
+  }, 100);
 };
 
-const onCanPlayThrough = () => {
-  videoLoaded.value = true;
-  console.log("Video can play through completely");
+const onLogoError = (error) => {
+  console.error("Logo failed to load:", error);
+  logoLoaded.value = false;
+};
 
-  // 自動再生を試行
-  if (videoRef.value) {
-    videoRef.value.play().catch((error) => {
-      console.error("Auto-play failed:", error);
-    });
+const startLogoAnimations = () => {
+  // ロゴコンテナのアニメーション開始
+  const logoContainer = document.querySelector('.logo-container');
+  const textContainer = document.querySelector('.logo-text-container');
+  
+  if (logoContainer) {
+    logoContainer.classList.add('animate');
+  }
+  
+  if (textContainer) {
+    setTimeout(() => {
+      textContainer.classList.add('animate');
+    }, 800);
   }
 };
 
-const onVideoError = (error) => {
-  console.error("Video failed to load from S3:", error);
-  videoLoaded.value = false;
+// 液体ブロブのスタイルを生成
+const getFluidBlobStyle = (index) => {
+  const colors = [
+    'rgba(0, 250, 255, 0.15)',
+    'rgba(255, 0, 150, 0.12)',
+    'rgba(150, 0, 255, 0.18)',
+    'rgba(0, 255, 150, 0.14)'
+  ];
+  
+  const size = 80 + Math.random() * 200;
+  const delay = Math.random() * 20;
+  const duration = 25 + Math.random() * 35;
+  
+  return {
+    left: `${Math.random() * 100}%`,
+    top: `${Math.random() * 100}%`,
+    width: `${size}px`,
+    height: `${size}px`,
+    background: `radial-gradient(ellipse at center, ${colors[index % colors.length]}, transparent 70%)`,
+    animationDelay: `${delay}s`,
+    animationDuration: `${duration}s`,
+  };
+};
 
-  if (videoRef.value && videoRef.value.error) {
-    const mediaError = videoRef.value.error;
-    let errorMessage = "Unknown error";
+// 流れる波のスタイルを生成
+const getFlowingWaveStyle = (index) => {
+  const width = 200 + Math.random() * 400;
+  const height = 60 + Math.random() * 120;
+  const delay = Math.random() * 15;
+  const duration = 30 + Math.random() * 45;
+  
+  return {
+    left: `${Math.random() * 100}%`,
+    top: `${Math.random() * 100}%`,
+    width: `${width}px`,
+    height: `${height}px`,
+    animationDelay: `${delay}s`,
+    animationDuration: `${duration}s`,
+  };
+};
 
-    switch (mediaError.code) {
-      case MediaError.MEDIA_ERR_ABORTED:
-        errorMessage = "Video loading aborted";
-        break;
-      case MediaError.MEDIA_ERR_NETWORK:
-        errorMessage = "Network error while loading video";
-        break;
-      case MediaError.MEDIA_ERR_DECODE:
-        errorMessage = "Video decoding error";
-        break;
-      case MediaError.MEDIA_ERR_SRC_NOT_SUPPORTED:
-        errorMessage = "Video format not supported";
-        break;
-    }
+// 変形する円のスタイルを生成
+const getMorphingCircleStyle = (index) => {
+  const size = 120 + Math.random() * 250;
+  const delay = Math.random() * 25;
+  const duration = 40 + Math.random() * 60;
+  
+  return {
+    left: `${Math.random() * 100}%`,
+    top: `${Math.random() * 100}%`,
+    width: `${size}px`,
+    height: `${size}px`,
+    animationDelay: `${delay}s`,
+    animationDuration: `${duration}s`,
+  };
+};
 
-    console.error("Media error details:", errorMessage, mediaError);
-  }
+// 液体パーティクルのスタイルを生成
+const getLiquidParticleStyle = (index) => {
+  const size = 3 + Math.random() * 8;
+  const delay = Math.random() * 10;
+  const duration = 15 + Math.random() * 25;
+  
+  return {
+    left: `${Math.random() * 100}%`,
+    top: `${Math.random() * 100}%`,
+    width: `${size}px`,
+    height: `${size}px`,
+    animationDelay: `${delay}s`,
+    animationDuration: `${duration}s`,
+  };
+};
+
+// パーティクルのスタイルを生成
+const getParticleStyle = (index) => {
+  const delay = Math.random() * 5;
+  const duration = 3 + Math.random() * 4;
+  const size = 2 + Math.random() * 4;
+  const opacity = 0.1 + Math.random() * 0.3;
+
+  return {
+    left: `${Math.random() * 100}%`,
+    top: `${Math.random() * 100}%`,
+    width: `${size}px`,
+    height: `${size}px`,
+    opacity: opacity,
+    animationDelay: `${delay}s`,
+    animationDuration: `${duration}s`,
+  };
+};
+
+// クリップパスを生成
+const getClipPath = (shape) => {
+  const clipPaths = {
+    triangle: 'polygon(50% 0%, 0% 100%, 100% 100%)',
+    diamond: 'polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)',
+    hexagon: 'polygon(30% 0%, 70% 0%, 100% 50%, 70% 100%, 30% 100%, 0% 50%)',
+    pentagon: 'polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%)',
+  };
+  return clipPaths[shape] || 'circle(50%)';
 };
 
 // Intersection Observer for animations
 onMounted(() => {
-  console.log("VideoSection mounted, loading S3 video");
+  console.log("LogoSection mounted");
 
   const observerOptions = {
     threshold: 0.1,
@@ -102,17 +228,15 @@ onMounted(() => {
     });
   }, observerOptions);
 
-  document
-    .querySelectorAll("#video-section .animate-fadeInUp")
-    .forEach((el) => {
-      observer.observe(el);
-    });
+  // セクション全体の観察
+  const logoSection = document.querySelector("#logo-section");
+  if (logoSection) {
+    observer.observe(logoSection);
+  }
 });
 
 // Cleanup
 onUnmounted(() => {
-  if (videoRef.value) {
-    videoRef.value.pause();
-  }
+  // 必要に応じてクリーンアップ処理
 });
 </script>

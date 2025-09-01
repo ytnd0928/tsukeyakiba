@@ -1,7 +1,7 @@
 /* ===== 共通スタイル ===== */
 * {
   box-sizing: border-box;
-  cursor: none;
+  /* cursor: none; 一時的に無効化 */
 }
 
 /* カスタムカーソル */
@@ -12,7 +12,7 @@
   background: radial-gradient(circle, #00faff 0%, #00faff 70%, transparent 70%);
   border-radius: 50%;
   pointer-events: none;
-  z-index: 9999;
+  z-index: 1050;
   transition: transform 0.1s ease;
 }
 
@@ -22,7 +22,7 @@
 
 html {
   scroll-behavior: smooth;
-  cursor: none;
+  /* cursor: none; 一時的に無効化 */
 }
 
 /* モバイル版ではカスタムカーソルを無効化 */
@@ -47,13 +47,142 @@ body {
 
 /* ===== ユーティリティクラス ===== */
 .gradient-text {
-  background: linear-gradient(45deg, #000000, #00faff);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: #000000;
   font-size: 28px;
   line-height: 1.2;
   padding-bottom: 4px;
+  /* background: linear-gradient(45deg, #000000, #00faff);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; */
+}
+
+/* セクションタイトル専用のグラデーションテキスト */
+.section-title-gradient {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #f5576c 75%, #4facfe 100%);
+  background-size: 300% 300%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  padding-bottom: 8px;
+  position: relative;
+  animation: gradientFlow 8s ease-in-out infinite;
+  text-shadow: 0 0 30px rgba(102, 126, 234, 0.3);
+}
+
+.section-title-gradient::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #00faff, transparent);
+  border-radius: 2px;
+  animation: underlineGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes gradientFlow {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes underlineGlow {
+  0% {
+    opacity: 0.6;
+    box-shadow: 0 0 10px rgba(0, 250, 255, 0.4);
+  }
+  100% {
+    opacity: 1;
+    box-shadow: 0 0 20px rgba(0, 250, 255, 0.8);
+  }
+}
+
+/* セクションサブタイトル */
+.section-subtitle {
+  font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+  font-weight: 300;
+  letter-spacing: 0.05em;
+  color: rgba(255, 255, 255, 0.7);
+  margin-top: 16px;
+  text-transform: uppercase;
+  position: relative;
+}
+
+.section-subtitle::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: -40px;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3));
+}
+
+.section-subtitle::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: -40px;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.3), transparent);
+}
+
+/* コンタクトセクション専用のタイトルスタイル */
+.contact-title-gradient {
+  background: linear-gradient(135deg, #ffffff 0%, #00faff 50%, #ffffff 100%);
+  background-size: 300% 300%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  padding-bottom: 8px;
+  position: relative;
+  animation: gradientFlow 8s ease-in-out infinite;
+  text-shadow: 0 0 30px rgba(0, 250, 255, 0.3);
+}
+
+.contact-title-gradient::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #ffffff, transparent);
+  border-radius: 2px;
+  animation: underlineGlow 3s ease-in-out infinite alternate;
+}
+
+/* アクセシビリティ: アニメーション無効化 */
+@media (prefers-reduced-motion: reduce) {
+  .section-title-gradient,
+  .contact-title-gradient {
+    animation: none;
+    background-position: 0% 50%;
+  }
+  
+  .section-title-gradient::after,
+  .contact-title-gradient::after {
+    animation: none;
+    opacity: 0.8;
+  }
 }
 
 .logo-image {
@@ -133,6 +262,17 @@ body {
   }
 }
 
+@keyframes profileFloat {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* 後方互換性のため */
 @keyframes float {
   0%,
   100% {
@@ -161,7 +301,7 @@ body {
 }
 
 .animate-float {
-  animation: float 3s ease-in-out infinite;
+  animation: profileFloat 3s ease-in-out infinite;
 }
 
 /* ===== スクロールアニメーション用 ===== */

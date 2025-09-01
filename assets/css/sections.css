@@ -958,6 +958,17 @@ section {
   height: 4rem;
 }
 
+/* ===== コンタクトセクション専用ソーシャルリンク ===== */
+#contact .contact-social-links {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  text-align: center !important;
+  width: 100% !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
 /* ===== コンタクトセクション ===== */
 #contact {
   position: relative;

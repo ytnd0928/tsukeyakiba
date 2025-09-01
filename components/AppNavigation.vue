@@ -73,7 +73,6 @@ const drawer = ref(false);
 
 const menuItems = ref([
   { title: "Home", section: "top", requiresHome: true },
-  { title: "Services", section: "services", requiresHome: true },
   { title: "About", section: "about", requiresHome: true },
   { title: "Our Team", section: "our-team", requiresHome: true },
   { title: "Contact", section: "contact", requiresHome: true },

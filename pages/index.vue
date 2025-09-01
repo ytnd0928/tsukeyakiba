@@ -7,8 +7,8 @@
       <!-- 映像セクション -->
       <VideoSection />
 
-      <!-- サービスセクション -->
-      <section id="services" class="py-20 services-section">
+      <!-- サービスセクション（一時的に無効化） -->
+      <section v-if="false" id="services" class="py-20 services-section">
         <!-- 背景パーティクル -->
         <div class="services-particles">
           <div
@@ -112,10 +112,10 @@
         <v-container>
           <v-row>
             <v-col cols="12" class="text-center mb-12">
-              <h2 class="text-h3 font-weight-bold mb-4 reveal">
-                <span class="gradient-text">About</span>
+              <h2 class="reveal" style="margin-bottom: 0;">
+                <span class="section-title-gradient">About</span>
               </h2>
-              <p class="text-h6 opacity-80 reveal">Our Vision and Mission</p>
+              <p class="section-subtitle reveal">Our Vision and Mission</p>
             </v-col>
           </v-row>
 
@@ -147,9 +147,10 @@
         <v-container>
           <v-row>
             <v-col cols="12" class="text-center mb-12">
-              <h2 class="text-h3 font-weight-bold mb-4 reveal">
-                <span class="gradient-text">Our Team</span>
+              <h2 class="reveal" style="margin-bottom: 0;">
+                <span class="section-title-gradient">Our Team</span>
               </h2>
+              <p class="section-subtitle reveal">Meet Our Creators</p>
             </v-col>
           </v-row>
 
@@ -160,8 +161,8 @@
               <p class="text-body-1 mb-4">
                 Web Engineer / VJ / DJ / 3DCG Artist
               </p>
+              <p class="text-body-1 mb-4">1999、埼玉県生まれ</p>
               <p class="text-body-1 mb-4">
-                <p>1999、埼玉県生まれ</p>
                 3DCGグラフィックを用いて、VJや映像でのビジュアル制作、VRインスタレーションアートの制作で活動したのち、
                 webアプリーケーションエンジニアとしてフロントエンド、バックエンド開発に従事
               </p>
@@ -329,13 +330,13 @@
         <v-container>
           <v-row>
             <v-col cols="12" class="text-center mb-12">
-              <h2 class="text-h3 font-weight-bold mb-4 reveal">
-                <span class="text-white">Contact</span>
+              <h2 class="reveal" style="margin-bottom: 0;">
+                <span class="contact-title-gradient">Contact</span>
               </h2>
-              <p class="text-h8 font-weight-bold mt-10 mb-4 reveal">
-                <span class="text-white">cyann250808@gmail.com</span>
+              <p class="text-h6 font-weight-bold mt-8 mb-4 reveal" style="color: #00faff; letter-spacing: 0.02em;">
+                cyann250808@gmail.com
               </p>
-              <div class="social-links mt-8 reveal">
+              <div class="social-links contact-social-links mt-8 reveal">
                 <v-btn
                   icon
                   size="large"
@@ -385,7 +386,7 @@ useHead({
   ],
 });
 
-// サービス一覧
+// サービス一覧（一時的に無効化）
 const services = ref([
   {
     title: "Photography",
@@ -437,7 +438,7 @@ onMounted(() => {
   });
 });
 
-// パーティクルのスタイルを生成
+// パーティクルのスタイルを生成（一時的に無効化）
 const getParticleStyle = (index) => {
   const delay = Math.random() * 5;
   const duration = 3 + Math.random() * 4;
@@ -453,7 +454,7 @@ const getParticleStyle = (index) => {
   };
 };
 
-// サービス用抽象的パーティクルのスタイルを生成
+// サービス用抽象的パーティクルのスタイルを生成（一時的に無効化）
 const getServiceParticleStyle = (index) => {
   const delay = Math.random() * 20;
   const baseDuration = [18, 20, 25, 30][index % 4];
@@ -486,7 +487,7 @@ const getServiceParticleStyle = (index) => {
   };
 };
 
-// サービス詳細ページへのナビゲーション
+// サービス詳細ページへのナビゲーション（一時的に無効化）
 const navigateToService = (serviceTitle) => {
   const router = useRouter();
   const routes = {

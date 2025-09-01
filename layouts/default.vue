@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <div class="custom-cursor" ref="cursor"></div>
+    <!-- <div class="custom-cursor" ref="cursor"></div> 一時的に無効化 -->
     <!-- ナビゲーション -->
     <AppNavigation />
 
@@ -26,6 +26,8 @@
 import { ref, onMounted, onUnmounted } from "vue";
 import AppNavigation from "~/components/AppNavigation.vue";
 
+// カスタムカーソル機能を一時的に無効化
+/*
 const cursor = ref(null);
 
 const updateCursor = (e) => {
@@ -58,6 +60,7 @@ onUnmounted(() => {
   document.removeEventListener("mousedown", handleMouseDown);
   document.removeEventListener("mouseup", handleMouseUp);
 });
+*/
 // レイアウト設定
 useHead({
   htmlAttrs: {
