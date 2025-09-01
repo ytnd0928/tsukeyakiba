@@ -161,14 +161,14 @@
               <p class="text-body-1 mb-4">
                 Web Engineer / VJ / DJ / 3DCG Artist
               </p>
-              <p class="text-body-1 mb-4">1999、埼玉県生まれ</p>
+              <p class="text-body-1 mb-4">1999年、埼玉県生まれ</p>
               <p class="text-body-1 mb-4">
-                3DCGグラフィックを用いて、VJや映像でのビジュアル制作、VRインスタレーションアートの制作で活動したのち、
-                webアプリーケーションエンジニアとしてフロントエンド、バックエンド開発に従事
+                聴覚体験の視覚的拡張をテーマに、オーディオヴィジュアル領域で3DCGグラフィックを用いて、クラブVJやライブの背景映像演出、映像制作、VRインスタレーションアートの制作で活動。
+                現在はwebアプリーケーションエンジニアとしてフロントエンド、バックエンド開発に従事している。元プロボクサー。
               </p>
               <p class="text-body-1 mb-2">使用技術</p>
               <p class="text-body-1 mb-4">
-                Ruby on Rails / Vue.js / Nuxt3.js / JavaScript / TypeScript / C#
+                Ruby on Rails / Vue.js / Nuxt3.js /React.js / JavaScript / TypeScript / C#
                 / Unity / Blender / After Effects / Premiere Pro / Photoshop /
               </p>
               

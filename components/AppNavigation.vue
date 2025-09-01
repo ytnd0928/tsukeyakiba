@@ -14,7 +14,7 @@
         style="max-width: none !important; width: auto !important"
       >
         <img src="@/assets/images/logo.png" alt="Logo" class="logo-image" />
-        <span class="gradient-text">CyAnn</span>
+        <span class="header-logo-gradient">CyAnn</span>
       </div>
 
       <v-spacer />

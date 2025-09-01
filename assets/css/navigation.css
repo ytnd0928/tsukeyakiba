@@ -1,5 +1,24 @@
 /* ===== ナビゲーションスタイル ===== */
 
+/* ヘッダーロゴスタイル */
+.header-logo-gradient {
+  background: linear-gradient(45deg, #000000, #00faff);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 28px;
+  line-height: 1.2;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.header-logo-gradient:hover {
+  background: linear-gradient(45deg, #00faff, #000000);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 /* ナビゲーションボタン */
 .nav-btn {
   position: relative;
@@ -79,6 +98,20 @@
   background-clip: text !important;
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent !important; */
+}
+
+.v-app-bar.scrolled .header-logo-gradient {
+  background: linear-gradient(45deg, #ffffff, #00faff, #ffffff) !important;
+  background-clip: text !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+.v-app-bar.scrolled .header-logo-gradient:hover {
+  background: linear-gradient(45deg, #00faff, #ffffff, #00faff) !important;
+  background-clip: text !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
 }
 
 /* テーマ切替ボタン */
