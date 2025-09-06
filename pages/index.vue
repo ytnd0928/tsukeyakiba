@@ -115,7 +115,6 @@
               <h2 class="reveal" style="margin-bottom: 0;">
                 <span class="section-title-gradient">About</span>
               </h2>
-              <p class="section-subtitle reveal">Our Vision and Mission</p>
             </v-col>
           </v-row>
 
@@ -150,7 +149,6 @@
               <h2 class="reveal" style="margin-bottom: 0;">
                 <span class="section-title-gradient">Our Team</span>
               </h2>
-              <p class="section-subtitle reveal">Meet Our Creators</p>
             </v-col>
           </v-row>
 
@@ -164,7 +162,8 @@
               <p class="text-body-1 mb-4">1999年、埼玉県生まれ</p>
               <p class="text-body-1 mb-4">
                 聴覚体験の視覚的拡張をテーマに、オーディオヴィジュアル領域で3DCGグラフィックを用いて、クラブVJやライブの背景映像演出、映像制作、VRインスタレーションアートの制作で活動。
-                現在はwebアプリーケーションエンジニアとしてフロントエンド、バックエンド開発に従事している。元プロボクサー。
+                <p>　NEWVIEW CYPHER所属アーティストとして、社会学的側面から、ディストピアを表現したVR作品の制作、展示を行ったりしていた。</p>
+                <p>　現在はwebアプリーケーションエンジニアとしてフロントエンド、バックエンド開発に従事している。</p>
               </p>
               <p class="text-body-1 mb-2">使用技術</p>
               <p class="text-body-1 mb-4">
@@ -252,6 +251,19 @@
               </div>
             </v-col>
           </v-row>
+           <!-- Noda Detail Button -->
+           <div class="mt-6 mb-4">
+                <v-btn
+                  variant="outlined"
+                  color="primary"
+                  size="large"
+                  class="detail-btn"
+                  @click="navigateToTeamMember('noda')"
+                >
+                  詳細を見る
+                  <v-icon right size="20">mdi-arrow-right</v-icon>
+                </v-btn>
+              </div>
         </v-container>
         
         <!-- チームメンバー間のスペーシング -->
@@ -263,8 +275,10 @@
               <h3 class="text-h4 font-weight-bold mb-4">Tetsushi Nagano</h3>
               <p class="text-body-1 mb-4">Photographer / Artist</p>
               <p class="text-body-1 mb-4">1999年、東京都生まれ</p>
-              「諸行無常」をテーマに、変わりゆく都市の風景と人々の写真撮影をライフワークとしている。
-大学在学時は、学生団体主催のミス・ミスターコンテストのカメラマンとして、5大学の出場者の写真撮影を担当。
+              <p class="text-body-1 mb-4">
+                「諸行無常」をテーマに、変わりゆく都市の風景と人々の写真撮影をライフワークとしている。
+                大学在学時は、学生団体主催のミス・ミスターコンテストのカメラマンとして、5大学の出場者の写真撮影を担当。
+              </p>
               
               <!-- Nagano Social Links -->
               <div class="social-links mt-6 text-left">
@@ -295,8 +309,22 @@
               </div>
             </v-col>
           </v-row>
+          <div class="mt-6 mb-4">
+                <v-btn
+                  variant="outlined"
+                  color="primary"
+                  size="large"
+                  class="detail-btn"
+                  @click="navigateToTeamMember('nagano')"
+                >
+                  詳細を見る
+                  <v-icon right size="20">mdi-arrow-right</v-icon>
+                </v-btn>
+              </div>
         </v-container>
       </section>
+
+
       <section id="member" class="py-16"></section>
 
       <!-- コンタクトセクション -->
@@ -475,5 +503,12 @@ const navigateToService = (serviceTitle) => {
   if (route) {
     router.push(route);
   }
+};
+
+// チームメンバー詳細ページへのナビゲーション
+const navigateToTeamMember = (memberName) => {
+  const router = useRouter();
+  const route = `/team/${memberName}`;
+  router.push(route);
 };
 </script>

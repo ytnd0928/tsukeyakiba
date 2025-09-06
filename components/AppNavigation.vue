@@ -75,6 +75,8 @@ const menuItems = ref([
   { title: "Home", section: "top", requiresHome: true },
   { title: "About", section: "about", requiresHome: true },
   { title: "Our Team", section: "our-team", requiresHome: true },
+  { title: "Yuto Noda", route: "/team/noda", isTeamMember: true },
+  { title: "Tetsushi Nagano", route: "/team/nagano", isTeamMember: true },
   { title: "Contact", section: "contact", requiresHome: true },
 ]);
 
@@ -91,6 +93,9 @@ const navigateToHome = () => {
 const handleNavigation = (item) => {
   if (item.title === "Home") {
     navigateToHome();
+  } else if (item.isTeamMember) {
+    // チームメンバーページへの遷移
+    router.push(item.route);
   } else if (item.requiresHome && route.path !== "/") {
     // ホームページ以外にいる場合は、まずホームに遷移してからセクションにスクロール
     router.push("/").then(() => {
