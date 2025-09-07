@@ -75,20 +75,6 @@
                     <v-icon size="28">mdi-web</v-icon>
                   </v-btn>
                 </div>
-                
-                <!-- ナビゲーションボタン -->
-                <div class="navigation-buttons">
-                  <v-btn
-                    variant="outlined"
-                    color="primary"
-                    size="large"
-                    @click="goBack"
-                    class="back-btn mr-3"
-                  >
-                    <v-icon left size="20">mdi-arrow-left</v-icon>
-                    戻る
-                  </v-btn>
-                </div>
               </div>
             </v-col>
             <v-col cols="12" md="6" class="reveal">
@@ -103,6 +89,19 @@
               </div>
             </v-col>
           </v-row>
+           <!-- ナビゲーションボタン -->
+           <div class="navigation-buttons">
+                  <v-btn
+                    variant="outlined"
+                    color="primary"
+                    size="large"
+                    @click="goBack"
+                    class="back-btn mr-3"
+                  >
+                    <v-icon left size="20">mdi-arrow-left</v-icon>
+                    戻る
+                  </v-btn>
+                </div>
         </v-container>
       </section>
 
