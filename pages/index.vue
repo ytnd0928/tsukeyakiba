@@ -108,7 +108,7 @@
       </section>
 
       <!-- Aboutセクション -->
-      <section id="about" class="py-16">
+      <section id="about" class="py-16 about-section">
         <v-container>
           <v-row>
             <v-col cols="12" class="text-center mb-12">
@@ -128,12 +128,12 @@
               </p>
             </v-col>
             <v-col cols="12" md="6" class="reveal">
-              <div class="text-center">
-                <v-avatar size="300" class="animate-float">
+              <div class="text-center about-image-container">
+                <v-avatar size="300" class="animate-float about-avatar">
                   <img
-                    src="@/assets/images/logo.png"
+                    src="@/assets/images/cyann_crusader.png"
                     alt="About Image"
-                    class="rounded-lg"
+                    class="about-image"
                   />
                 </v-avatar>
               </div>
@@ -165,11 +165,6 @@
                 <p>　NEWVIEW CYPHER所属アーティストとして、社会学的側面から、ディストピアを表現したVR作品の制作、展示を行ったりしていた。</p>
                 <p>　現在はwebアプリーケーションエンジニアとしてフロントエンド、バックエンド開発に従事している。</p>
               </p>
-              <p class="text-body-1 mb-2">使用技術</p>
-              <p class="text-body-1 mb-4">
-                Ruby on Rails / Vue.js / Nuxt3.js /React.js / JavaScript / TypeScript / C#
-                / Unity / Blender / After Effects / Premiere Pro / Photoshop /
-              </p>
               
               <!-- Noda Social Links -->
               <div class="social-links mt-6">
@@ -197,20 +192,6 @@
                 >
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-                  </svg>
-                </v-btn>
-                <v-btn
-                  icon
-                  size="small"
-                  variant="text"
-                  color="green"
-                  class="mx-1 social-icon"
-                  href="https://qiita.com/ytnd0928"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M3.57 8.343a3.653 3.653 0 0 1 1.49-1.492 3.653 3.653 0 0 1 3.983.583l3.36 2.52 3.36-2.52a3.653 3.653 0 0 1 3.983-.583 3.653 3.653 0 0 1 1.49 1.492c.37.63.568 1.35.568 2.085v8.017c0 .735-.198 1.456-.568 2.085a3.653 3.653 0 0 1-1.49 1.492 3.653 3.653 0 0 1-3.983-.583L12 18.92l-3.36 2.52a3.653 3.653 0 0 1-3.983.583 3.653 3.653 0 0 1-1.49-1.492A4.28 4.28 0 0 1 2.6 18.446v-8.017c0-.735.198-1.456.568-2.085l.402-.001z"/>
                   </svg>
                 </v-btn>
                 <v-btn
@@ -512,3 +493,33 @@ const navigateToTeamMember = (memberName) => {
   router.push(route);
 };
 </script>
+
+<style scoped>
+/* About画像の比率保持 */
+.about-avatar {
+  overflow: hidden;
+}
+
+.about-avatar.v-avatar {
+  background-color: #000000 !important;
+}
+
+.about-avatar .v-avatar__underlay {
+  background-color: #000000 !important;
+}
+
+.about-avatar::before {
+  background-color: #000000 !important;
+}
+
+.about-avatar .v-avatar__content {
+  background-color: #000000 !important;
+}
+
+.about-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+</style>

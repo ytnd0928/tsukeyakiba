@@ -7,7 +7,7 @@
           <v-row align="center" class="min-height-80vh">
             <v-col cols="12" md="6" class="reveal">
               <div class="member-info">
-                <h1 class="member-name text-h2 font-weight-bold mb-4">
+                <h1 class="member-name text-h2 font-weight-bold mb-4 pb-3">
                   Tetsushi Nagano
                 </h1>
                 <p class="member-role text-h5 mb-6 text-primary">
