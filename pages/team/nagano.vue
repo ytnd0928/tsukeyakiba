@@ -7,10 +7,10 @@
           <v-row align="center" class="min-height-80vh">
             <v-col cols="12" md="6" class="reveal">
               <div class="member-info">
-                <h1 class="member-name text-h2 font-weight-bold mb-4 pb-3">
+                <h1 class="member-name font-weight-bold mb-4 pb-3">
                   Tetsushi Nagano
                 </h1>
-                <p class="member-role text-h5 mb-6 text-primary">
+                <p class="member-role mb-6 text-primary">
                   Photographer / Artist
                 </p>
                 <p class="member-birth text-body-1 mb-6">
@@ -55,7 +55,7 @@
             </v-col>
             <v-col cols="12" md="6" class="reveal">
               <div class="text-center">
-                <v-avatar size="400" class="member-avatar animate-float">
+                <v-avatar class="member-avatar animate-float">
                   <img
                     src="@/assets/images/nagano.JPG"
                     alt="Tetsushi Nagano"
@@ -386,10 +386,12 @@ onMounted(() => {
 }
 
 .member-name {
+  font-size: 3.5rem;
   background: linear-gradient(45deg, #00faff, #ff0096);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  line-height: 1.2;
 }
 
 .member-role {
@@ -400,6 +402,9 @@ onMounted(() => {
 .member-avatar {
   position: relative;
   z-index: 2;
+  width: 400px;
+  height: 400px;
+  max-width: 100%;
 }
 
 .profile-image {
@@ -450,9 +455,9 @@ onMounted(() => {
 }
 
 .section-title {
-  font-size: 2.5rem;
+  font-size: 1.2rem !important;
   font-weight: bold;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 }
 
 .section-title-gradient {
@@ -518,32 +523,98 @@ onMounted(() => {
   min-height: 80vh;
 }
 
+/* タブレット用 */
+@media (max-width: 1200px) {
+  .member-name {
+    font-size: 3rem;
+  }
+  
+  .member-avatar {
+    width: 350px;
+    height: 350px;
+  }
+  
+  .section-title {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 960px) {
+  .member-name {
+    font-size: 2.5rem;
+  }
+  
+  .member-role {
+    font-size: 1.1rem;
+  }
+  
+  .member-avatar {
+    width: 300px;
+    height: 300px;
+  }
+  
+  .section-title {
+    font-size: 1rem;
+  }
+}
+
+/* モバイル用 */
 @media (max-width: 768px) {
   .member-name {
     font-size: 2rem;
   }
   
   .member-role {
-    font-size: 1.2rem;
+    font-size: 1rem;
+  }
+  
+  .member-birth,
+  .member-description {
+    text-align: left;
   }
   
   .member-avatar {
-    margin-top: 2rem;
+    width: 250px;
+    height: 250px;
+    margin: 2rem auto;
+  }
+  
+  .section-title {
+    font-size: 0.9rem;
   }
   
   .concept-card {
-    padding: 2rem;
+    padding: 1.5rem;
   }
   
   .navigation-buttons {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
   }
   
-  .back-btn,
-  .team-nav-btn {
+  .back-btn {
     width: 100%;
+    max-width: 300px;
     margin-bottom: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .member-name {
+    font-size: 1.8rem;
+  }
+  
+  .member-avatar {
+    width: 200px;
+    height: 200px;
+  }
+  
+  .section-title {
+    font-size: 0.8rem;
+  }
+  
+  .concept-card {
+    padding: 1rem;
   }
 }
 </style>
