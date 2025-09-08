@@ -39,33 +39,70 @@
               <div class="media-grid">
                 <!-- 作品1 -->
                 <div class="media-item">
-                  <div class="media-placeholder">
-                    <v-icon size="48" color="primary">mdi-play-circle</v-icon>
-                    <p class="text-body-2 mt-2">VJ作品 1</p>
+                  <div class="media-video-container">
+                    <video 
+                      src="https://larvaeyet-storage-2936ebd091750-staging.s3.ap-northeast-1.amazonaws.com/public/refrigerator3_2.MP4"
+                      class="media-video"
+                      autoplay
+                      muted
+                      loop
+                      preload="metadata"
+                    />
                   </div>
                 </div>
 
                 <!-- 作品2 -->
                 <div class="media-item">
-                  <div class="media-placeholder">
-                    <v-icon size="48" color="secondary">mdi-play-circle</v-icon>
-                    <p class="text-body-2 mt-2">VJ作品 2</p>
+                  <div class="media-video-container">
+                    <video 
+                      src="https://larvaeyet-storage-2936ebd091750-staging.s3.ap-northeast-1.amazonaws.com/public/putus.mp4"
+                      class="media-video"
+                      autoplay
+                      muted
+                      loop
+                      preload="metadata"
+                    />
                   </div>
                 </div>
 
                 <!-- 作品3 -->
                 <div class="media-item">
-                  <div class="media-placeholder">
-                    <v-icon size="48" color="accent">mdi-play-circle</v-icon>
-                    <p class="text-body-2 mt-2">VJ作品 3</p>
+                  <div class="media-video-container">
+                    <video 
+                      src="https://larvaeyet-storage-2936ebd091750-staging.s3.ap-northeast-1.amazonaws.com/public/dist_town.mp4"
+                      class="media-video"
+                      autoplay
+                      muted
+                      loop
+                      preload="metadata"
+                    />
                   </div>
                 </div>
 
                 <!-- 作品4 -->
                 <div class="media-item">
-                  <div class="media-placeholder">
-                    <v-icon size="48" color="primary">mdi-image</v-icon>
-                    <p class="text-body-2 mt-2">VJ作品 4</p>
+                  <div class="media-video-container">
+                    <video 
+                      src="https://larvaeyet-storage-2936ebd091750-staging.s3.ap-northeast-1.amazonaws.com/public/k_monst.mp4"
+                      class="media-video"
+                      autoplay
+                      muted
+                      loop
+                      preload="metadata"
+                    />
+                  </div>
+                </div>
+
+                <div class="media-item">
+                  <div class="media-video-container">
+                    <video 
+                      src="https://larvaeyet-storage-2936ebd091750-staging.s3.ap-northeast-1.amazonaws.com/public/heven.mp4"
+                      class="media-video"
+                      autoplay
+                      muted
+                      loop
+                      preload="metadata"
+                    />
                   </div>
                 </div>
 
@@ -207,6 +244,45 @@ onMounted(() => {
 .media-item:hover .media-placeholder {
   background: linear-gradient(135deg, rgba(0, 250, 255, 0.1) 0%, rgba(255, 0, 150, 0.1) 100%);
   border-color: rgba(0, 250, 255, 0.3);
+}
+
+.media-video-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.media-video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: all 0.3s ease;
+}
+
+.media-item:hover .media-video {
+  transform: scale(1.05);
+}
+
+.video-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  opacity: 0.8;
+}
+
+.media-item:hover .video-overlay {
+  opacity: 1;
+  background: rgba(0, 0, 0, 0.7);
 }
 
 .reveal {
