@@ -153,6 +153,19 @@
           </v-row>
 
           <v-row align="center">
+            <!-- モバイル版では画像を先に表示 -->
+            <v-col cols="12" md="6" class="reveal d-md-none">
+              <div class="text-center mb-8">
+                <v-avatar size="300" class="animate-float">
+                  <img
+                    src="@/assets/images/noda.jpg"
+                    alt="About Image"
+                    class="profile-image"
+                  />
+                </v-avatar>
+              </div>
+            </v-col>
+            
             <v-col cols="12" md="6" class="reveal">
               <h3 class="text-h4 font-weight-bold mb-4">Yuto Noda</h3>
               <p class="text-body-1 mb-4"></p>
@@ -220,7 +233,9 @@
                 </v-btn>
               </div>
             </v-col>
-            <v-col cols="12" md="6" class="reveal">
+            
+            <!-- デスクトップ版では画像を右側に表示 -->
+            <v-col cols="12" md="6" class="reveal d-none d-md-block">
               <div class="text-center">
                 <v-avatar size="300" class="animate-float">
                   <img
@@ -252,6 +267,19 @@
         
         <v-container>
           <v-row align="center">
+            <!-- モバイル版では画像を先に表示 -->
+            <v-col cols="12" md="6" class="reveal d-md-none">
+              <div class="text-center mb-8">
+                <v-avatar size="300" class="animate-float">
+                  <img
+                    src="@/assets/images/nagano.JPG"
+                    alt="About Image"
+                    class="profile-image"
+                  />
+                </v-avatar>
+              </div>
+            </v-col>
+            
             <v-col cols="12" md="6" class="reveal">
               <h3 class="text-h4 font-weight-bold mb-4">Tetsushi Nagano</h3>
               <p class="text-body-1 mb-4">Photographer / Artist</p>
@@ -278,7 +306,9 @@
               </div>
 
             </v-col>
-            <v-col cols="12" md="6" class="reveal">
+            
+            <!-- デスクトップ版では画像を右側に表示 -->
+            <v-col cols="12" md="6" class="reveal d-none d-md-block">
               <div class="text-center">
                 <v-avatar size="300" class="animate-float">
                   <img

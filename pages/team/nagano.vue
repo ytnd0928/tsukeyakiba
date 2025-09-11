@@ -5,6 +5,19 @@
       <section class="member-hero py-16">
         <v-container>
           <v-row align="center" class="min-height-80vh">
+            <!-- モバイル版では画像を先に表示 -->
+            <v-col cols="12" md="6" class="reveal d-md-none">
+              <div class="text-center mb-8">
+                <v-avatar class="member-avatar animate-float">
+                  <img
+                    src="@/assets/images/nagano.JPG"
+                    alt="Tetsushi Nagano"
+                    class="profile-image"
+                  />
+                </v-avatar>
+              </div>
+            </v-col>
+            
             <v-col cols="12" md="6" class="reveal">
               <div class="member-info">
                 <h1 class="member-name font-weight-bold mb-4 pb-3">
@@ -39,7 +52,9 @@
                 </div>
               </div>
             </v-col>
-            <v-col cols="12" md="6" class="reveal">
+            
+            <!-- デスクトップ版では画像を右側に表示 -->
+            <v-col cols="12" md="6" class="reveal d-none d-md-block">
               <div class="text-center">
                 <v-avatar class="member-avatar animate-float">
                   <img
