@@ -106,11 +106,52 @@
                   </div>
                 </div>
 
-                <!-- 作品5 -->
                 <div class="media-item">
-                  <div class="media-placeholder">
-                    <v-icon size="48" color="secondary">mdi-image</v-icon>
-                    <p class="text-body-2 mt-2">VJ作品 5</p>
+                  <div class="media-video-container">
+                    <video 
+                      src="https://larvaeyet-storage-2936ebd091750-staging.s3.ap-northeast-1.amazonaws.com/public/pinktrance.mp4"
+                      class="media-video"
+                      autoplay
+                      muted
+                      loop
+                      preload="metadata"
+                    />
+                  </div>
+                </div>
+                <div class="media-item">
+                  <div class="media-video-container">
+                    <video 
+                      src="https://larvaeyet-storage-2936ebd091750-staging.s3.ap-northeast-1.amazonaws.com/public/bab.mov"
+                      class="media-video"
+                      autoplay
+                      muted
+                      loop
+                      preload="metadata"
+                    />
+                  </div>
+                </div>
+                <div class="media-item">
+                  <div class="media-video-container">
+                    <video 
+                      src="https://larvaeyet-storage-2936ebd091750-staging.s3.ap-northeast-1.amazonaws.com/public/stillass.mov"
+                      class="media-video"
+                      autoplay
+                      muted
+                      loop
+                      preload="metadata"
+                    />
+                  </div>
+                </div>
+                <div class="media-item">
+                  <div class="media-video-container">
+                    <video 
+                      src="https://larvaeyet-storage-2936ebd091750-staging.s3.ap-northeast-1.amazonaws.com/public/kaibyaku.mov"
+                      class="media-video"
+                      autoplay
+                      muted
+                      loop
+                      preload="metadata"
+                    />
                   </div>
                 </div>
 
