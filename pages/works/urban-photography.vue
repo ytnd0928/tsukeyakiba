@@ -37,75 +37,20 @@
           <v-row>
             <v-col cols="12" class="reveal">
               <div class="media-grid">
-                <!-- 作品1 -->
-                <div class="media-item">
-                  <div class="media-placeholder">
-                    <v-icon size="48" color="primary">mdi-image</v-icon>
-                    <p class="text-body-2 mt-2">都市風景 1</p>
-                  </div>
-                </div>
-
-                <!-- 作品2 -->
-                <div class="media-item">
-                  <div class="media-placeholder">
-                    <v-icon size="48" color="secondary">mdi-image</v-icon>
-                    <p class="text-body-2 mt-2">都市風景 2</p>
-                  </div>
-                </div>
-
-                <!-- 作品3 -->
-                <div class="media-item">
-                  <div class="media-placeholder">
-                    <v-icon size="48" color="accent">mdi-image</v-icon>
-                    <p class="text-body-2 mt-2">都市風景 3</p>
-                  </div>
-                </div>
-
-                <!-- 作品4 -->
-                <div class="media-item">
-                  <div class="media-placeholder">
-                    <v-icon size="48" color="primary">mdi-image</v-icon>
-                    <p class="text-body-2 mt-2">都市風景 4</p>
-                  </div>
-                </div>
-
-                <!-- 作品5 -->
-                <div class="media-item">
-                  <div class="media-placeholder">
-                    <v-icon size="48" color="secondary">mdi-image</v-icon>
-                    <p class="text-body-2 mt-2">都市風景 5</p>
-                  </div>
-                </div>
-
-                <!-- 作品6 -->
-                <div class="media-item">
-                  <div class="media-placeholder">
-                    <v-icon size="48" color="accent">mdi-image</v-icon>
-                    <p class="text-body-2 mt-2">都市風景 6</p>
-                  </div>
-                </div>
-
-                <!-- 作品7 -->
-                <div class="media-item">
-                  <div class="media-placeholder">
-                    <v-icon size="48" color="primary">mdi-image</v-icon>
-                    <p class="text-body-2 mt-2">都市風景 7</p>
-                  </div>
-                </div>
-
-                <!-- 作品8 -->
-                <div class="media-item">
-                  <div class="media-placeholder">
-                    <v-icon size="48" color="secondary">mdi-image</v-icon>
-                    <p class="text-body-2 mt-2">都市風景 8</p>
-                  </div>
-                </div>
-
-                <!-- 作品9 -->
-                <div class="media-item">
-                  <div class="media-placeholder">
-                    <v-icon size="48" color="accent">mdi-image</v-icon>
-                    <p class="text-body-2 mt-2">都市風景 9</p>
+                <div 
+                  v-for="(image, index) in images" 
+                  :key="index"
+                  class="media-item" 
+                  @click="openModal(image.src, image.title)"
+                >
+                  <img 
+                    :src="image.src" 
+                    :alt="image.title"
+                    class="gallery-image"
+                    loading="lazy"
+                  />
+                  <div class="image-overlay">
+                    <v-icon size="32" color="white">mdi-magnify-plus</v-icon>
                   </div>
                 </div>
               </div>
@@ -113,12 +58,45 @@
           </v-row>
         </v-container>
       </section>
+
+      <!-- 画像モーダル -->
+      <v-dialog v-model="modalOpen" max-width="90vw" max-height="90vh" @click:outside="closeModal">
+        <v-card class="modal-card">
+          <v-card-title class="modal-header">
+            <span class="modal-title">{{ modalTitle }}</span>
+            <v-spacer></v-spacer>
+            <v-btn
+              icon
+              @click="closeModal"
+              class="close-btn"
+            >
+              <v-icon>mdi-close</v-icon>
+            </v-btn>
+          </v-card-title>
+          <v-card-text class="modal-content">
+            <div class="modal-image-container">
+              <img 
+                :src="modalImageSrc" 
+                :alt="modalTitle"
+                class="modal-image"
+                @click.stop
+              />
+            </div>
+          </v-card-text>
+        </v-card>
+      </v-dialog>
     </div>
   </NuxtLayout>
 </template>
 
 <script setup>
-import { onMounted } from "vue";
+import { onMounted, ref } from "vue";
+
+// 画像のインポート
+import DSC0049 from '~/assets/images/DSC_0049.JPG'
+import DSC0878 from '~/assets/images/DSC_0878.JPG'
+import DSC1687 from '~/assets/images/DSC_1687.JPG'
+import P1000280 from '~/assets/images/P1000280.JPG'
 
 // ページメタデータ
 useHead({
@@ -131,10 +109,40 @@ useHead({
   ],
 });
 
+// モーダル関連の状態
+const modalOpen = ref(false);
+const modalImageSrc = ref('');
+const modalTitle = ref('');
+
+// 画像データ
+const images = [
+  { src: DSC0049, title: '都市風景 1' },
+  { src: DSC0878, title: '都市風景 2' },
+  { src: DSC1687, title: '都市風景 3' },
+  { src: P1000280, title: '都市風景 4' }
+];
+
 // 戻るボタンの処理
 const goBack = () => {
   const router = useRouter();
   router.push('/team/nagano');
+};
+
+// モーダルを開く
+const openModal = (imageSrc, title) => {
+  modalImageSrc.value = imageSrc;
+  modalTitle.value = title;
+  modalOpen.value = true;
+};
+
+// モーダルを閉じる
+const closeModal = () => {
+  modalOpen.value = false;
+  // モーダルが閉じた後に画像をクリア（メモリ節約）
+  setTimeout(() => {
+    modalImageSrc.value = '';
+    modalTitle.value = '';
+  }, 300);
 };
 
 // スクロールアニメーション
@@ -208,6 +216,7 @@ onMounted(() => {
   overflow: hidden;
   transition: all 0.3s ease;
   cursor: pointer;
+  position: relative;
 }
 
 .media-item:hover {
@@ -215,22 +224,33 @@ onMounted(() => {
   box-shadow: 0 10px 30px rgba(0, 250, 255, 0.2);
 }
 
-.media-placeholder {
+.gallery-image {
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
+  object-fit: cover;
   transition: all 0.3s ease;
 }
 
-.media-item:hover .media-placeholder {
-  background: linear-gradient(135deg, rgba(0, 250, 255, 0.1) 0%, rgba(255, 0, 150, 0.1) 100%);
-  border-color: rgba(0, 250, 255, 0.3);
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.media-item:hover .image-overlay {
+  opacity: 1;
+}
+
+.media-item:hover .gallery-image {
+  transform: scale(1.05);
 }
 
 .reveal {
@@ -242,6 +262,66 @@ onMounted(() => {
 .reveal.active {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* モーダルスタイル */
+.modal-card {
+  background: rgba(10, 10, 10, 0.95) !important;
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.modal-header {
+  background: rgba(0, 0, 0, 0.8);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 1rem 1.5rem;
+}
+
+.modal-title {
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.close-btn {
+  color: rgba(255, 255, 255, 0.8) !important;
+  transition: all 0.3s ease;
+}
+
+.close-btn:hover {
+  color: white !important;
+  background: rgba(255, 255, 255, 0.1) !important;
+}
+
+.modal-content {
+  padding: 0 !important;
+  background: transparent;
+}
+
+.modal-image-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 70vh;
+  padding: 1rem;
+  overflow: hidden;
+}
+
+.modal-image {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease;
+}
+
+.modal-image:hover {
+  transform: scale(1.02);
 }
 
 @media (max-width: 768px) {
@@ -272,6 +352,24 @@ onMounted(() => {
 @media (max-width: 480px) {
   .media-grid {
     grid-template-columns: 1fr;
+  }
+  
+  .modal-image-container {
+    height: 60vh;
+    padding: 0.5rem;
+  }
+  
+  .modal-image {
+    max-width: 100%;
+    max-height: 100%;
+  }
+  
+  .modal-header {
+    padding: 0.75rem 1rem;
+  }
+  
+  .modal-title {
+    font-size: 1rem;
   }
 }
 </style>
