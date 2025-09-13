@@ -123,8 +123,7 @@
               <h3 class="text-h4 font-weight-bold mb-4">CyAnn</h3>
               <p class="text-body-1 mb-4"></p>
               <p class="text-body-1 mb-4">
-                VJやMV制作、3DCGグラフィック、写真と映像の融合展示など、
-                様々な領域での表現活動を行い、お客様の想像を現実に変えるお手伝いをいたします。
+                VJやMV制作、3DCGグラフィック、写真と映像の融合展示など、表現活動を行います。
               </p>
             </v-col>
             <v-col cols="12" md="6" class="reveal">
