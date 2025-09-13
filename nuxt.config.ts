@@ -32,6 +32,10 @@ export default defineNuxtConfig({
             "写真撮影からWebプラットフォーム開発、オーディオビジュアルアートまで、クリエイティブなソリューションを提供しています。",
         },
       ],
+      link: [
+        { rel: "icon", type: "image/png", href: "/favicon.ico" },
+        { rel: "apple-touch-icon", href: "/favicon.ico" },
+      ],
     },
   },
 });

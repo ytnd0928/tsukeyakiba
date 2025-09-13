@@ -154,14 +154,6 @@
                     />
                   </div>
                 </div>
-
-                <!-- 作品6 -->
-                <div class="media-item">
-                  <div class="media-placeholder">
-                    <v-icon size="48" color="accent">mdi-image</v-icon>
-                    <p class="text-body-2 mt-2">VJ作品 6</p>
-                  </div>
-                </div>
               </div>
             </v-col>
           </v-row>
@@ -251,7 +243,7 @@ onMounted(() => {
 
 .media-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
   gap: 1.5rem;
   margin-top: 2rem;
 }
@@ -337,6 +329,12 @@ onMounted(() => {
   transform: translateY(0);
 }
 
+@media (max-width: 1200px) {
+  .media-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
 @media (max-width: 768px) {
   .work-title {
     font-size: 1.5rem;
@@ -347,7 +345,7 @@ onMounted(() => {
   }
   
   .media-grid {
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
   }
   

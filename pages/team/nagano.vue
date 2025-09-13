@@ -5,19 +5,6 @@
       <section class="member-hero py-16">
         <v-container>
           <v-row align="center" class="min-height-80vh">
-            <!-- モバイル版では画像を先に表示 -->
-            <v-col cols="12" md="6" class="reveal d-md-none">
-              <div class="text-center mb-8">
-                <v-avatar class="member-avatar animate-float">
-                  <img
-                    src="@/assets/images/nagano.JPG"
-                    alt="Tetsushi Nagano"
-                    class="profile-image"
-                  />
-                </v-avatar>
-              </div>
-            </v-col>
-            
             <v-col cols="12" md="6" class="reveal">
               <div class="member-info">
                 <h1 class="member-name font-weight-bold mb-4 pb-3">
@@ -52,9 +39,7 @@
                 </div>
               </div>
             </v-col>
-            
-            <!-- デスクトップ版では画像を右側に表示 -->
-            <v-col cols="12" md="6" class="reveal d-none d-md-block">
+            <v-col cols="12" md="6" class="reveal">
               <div class="text-center">
                 <v-avatar class="member-avatar animate-float">
                   <img
@@ -96,10 +81,9 @@
           <v-row>
             <v-col cols="12" class="reveal">
               <div class="concept-card">
-                <h3 class="text-h4 font-weight-bold mb-6 text-center">諸行無常</h3>
                 <p class="text-body-1 mb-6 text-center">
-                  すべてのものは常に変化し続けているという仏教の教えを、写真という媒体を通じて表現している。
-                  都市の風景、人々の表情、一瞬の光と影の交錯——これらすべてが永遠に同じ状態でいることはない。
+                  飛び上がるような嬉しさも、沈むような悲しみも、二度と戻らないからこそ愛おしい。
+                  多くの人生が交わる東京で、そんな瞬間を探して、彷徨っています。
                 </p>
                 <p class="text-body-1 text-center">
                   カメラを通じて、その移ろいゆく美しさを捉え、永遠に留めることが私の使命です。
@@ -170,52 +154,6 @@
           </v-row>
         </v-container>
       </section>
-
-      <!-- 作品スタイルセクション -->
-      <section class="style-section py-16">
-        <v-container>
-          <v-row>
-            <v-col cols="12" class="text-center mb-12">
-              <h2 class="section-title reveal">
-                <span class="section-title-gradient">Photography Style</span>
-              </h2>
-            </v-col>
-          </v-row>
-          
-          <v-row>
-            <v-col cols="12" md="4" class="reveal">
-              <div class="style-card">
-                <v-icon size="48" color="primary" class="mb-4">mdi-city</v-icon>
-                <h3 class="text-h6 font-weight-bold mb-3">都市風景</h3>
-                <p class="text-body-2">
-                  変わりゆく都市の風景を捉え、その瞬間の美しさを永遠に留める
-                </p>
-              </div>
-            </v-col>
-            
-            <v-col cols="12" md="4" class="reveal">
-              <div class="style-card">
-                <v-icon size="48" color="secondary" class="mb-4">mdi-account</v-icon>
-                <h3 class="text-h6 font-weight-bold mb-3">人物撮影</h3>
-                <p class="text-body-2">
-                  人々の一瞬の表情や仕草を捉え、その瞬間の感情を写真に込める
-                </p>
-              </div>
-            </v-col>
-            
-            <v-col cols="12" md="4" class="reveal">
-              <div class="style-card">
-                <v-icon size="48" color="accent" class="mb-4">mdi-lightbulb</v-icon>
-                <h3 class="text-h6 font-weight-bold mb-3">光と影</h3>
-                <p class="text-body-2">
-                  光と影の交錯を巧みに捉え、ドラマチックな表現を生み出す
-                </p>
-              </div>
-            </v-col>
-          </v-row>
-        </v-container>
-      </section>
-
       <!-- 作品セクション -->
       <section class="works-section py-16">
         <v-container>
@@ -235,12 +173,15 @@
               <div class="works-gallery">
                 <!-- 都市風景写真 -->
                 <div class="work-card" @click="navigateToWork('urban-photography')">
-                  <div class="work-image-placeholder">
-                    <v-icon size="64" color="primary">mdi-city</v-icon>
-                    <p class="text-body-2 mt-2">都市風景写真</p>
+                  <div class="work-image-container">
+                    <img 
+                      src="/assets/images/DSC_1687.JPG" 
+                      alt="都市風景写真"
+                      class="work-image"
+                    />
                   </div>
                   <div class="work-content">
-                    <h3 class="work-title">都市の移ろい</h3>
+                    <h3 class="work-title">都市風景</h3>
                     <p class="work-description">
                       「諸行無常」をテーマに、変わりゆく都市の風景を捉えた写真作品シリーズ。
                     </p>
@@ -259,10 +200,10 @@
                 <div class="work-card" @click="navigateToWork('portrait-photography')">
                   <div class="work-image-placeholder">
                     <v-icon size="64" color="secondary">mdi-account</v-icon>
-                    <p class="text-body-2 mt-2">人物写真</p>
+                    <p class="text-body-2 mt-2">ポートレート</p>
                   </div>
                   <div class="work-content">
-                    <h3 class="work-title">人々の一瞬</h3>
+                    <h3 class="work-title">ポートレート</h3>
                     <p class="work-description">
                       人々の一瞬の表情や仕草を捉え、その瞬間の感情を写真に込めた作品群。
                     </p>
@@ -273,28 +214,6 @@
                     </div>
                     <div class="work-action">
                       <v-icon size="20" color="secondary">mdi-arrow-right</v-icon>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- コンテスト撮影 -->
-                <div class="work-card" @click="navigateToWork('event-photography')">
-                  <div class="work-image-placeholder">
-                    <v-icon size="64" color="accent">mdi-camera</v-icon>
-                    <p class="text-body-2 mt-2">コンテスト撮影</p>
-                  </div>
-                  <div class="work-content">
-                    <h3 class="work-title">ミス・ミスターコンテスト撮影</h3>
-                    <p class="work-description">
-                      学生団体主催のミス・ミスターコンテストで、5大学の出場者の写真撮影を担当した作品。
-                    </p>
-                    <div class="work-tags">
-                      <v-chip size="small" color="primary" variant="outlined">イベント撮影</v-chip>
-                      <v-chip size="small" color="secondary" variant="outlined">コンテスト</v-chip>
-                      <v-chip size="small" color="accent" variant="outlined">学生団体</v-chip>
-                    </div>
-                    <div class="work-action">
-                      <v-icon size="20" color="accent">mdi-arrow-right</v-icon>
                     </div>
                   </div>
                 </div>
@@ -338,8 +257,8 @@ const navigateToWork = (workType) => {
   const router = useRouter();
   const routes = {
     'urban-photography': '/works/urban-photography',
-    'portrait-photography': '/works/portrait-photography',
-    'event-photography': '/works/event-photography'
+    'portrait-photography': '/works/portrait-photography', // ポートレート写真専用ページ
+    'event-photography': '/works/vr-works' // イベント写真はVR作品ページに遷移
   };
   
   const route = routes[workType];
@@ -630,5 +549,24 @@ onMounted(() => {
   .concept-card {
     padding: 1rem;
   }
+}
+
+/* 作品画像のスタイル */
+.work-image-container {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 12px 12px 0 0;
+}
+
+.work-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all 0.3s ease;
+}
+
+.work-card:hover .work-image {
+  transform: scale(1.05);
 }
 </style>
