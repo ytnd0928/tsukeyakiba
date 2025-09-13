@@ -253,7 +253,7 @@
                     </p>
                     <div class="work-tags">
                       <v-chip size="small" color="primary" variant="outlined">VJ</v-chip>
-                      <v-chip size="small" color="secondary" variant="outlined">3DCG</v-chip>
+                      <v-chip size="small" color="success" variant="outlined">3DCG</v-chip>
                       <v-chip size="small" color="accent" variant="outlined">映像演出</v-chip>
                     </div>
                     <div class="work-action">
@@ -278,7 +278,7 @@
                     </p>
                     <div class="work-tags">
                       <v-chip size="small" color="primary" variant="outlined">VR</v-chip>
-                      <v-chip size="small" color="secondary" variant="outlined">インスタレーション</v-chip>
+                      <v-chip size="small" color="warning" variant="outlined">インスタレーション</v-chip>
                       <v-chip size="small" color="accent" variant="outlined">アート</v-chip>
                     </div>
                     <div class="work-action">
@@ -300,7 +300,7 @@
                     </p>
                     <div class="work-tags">
                       <v-chip size="small" color="primary" variant="outlined">Web開発</v-chip>
-                      <v-chip size="small" color="secondary" variant="outlined">フロントエンド</v-chip>
+                      <v-chip size="small" color="info" variant="outlined">フロントエンド</v-chip>
                       <v-chip size="small" color="accent" variant="outlined">バックエンド</v-chip>
                     </div>
                     <div class="work-action">

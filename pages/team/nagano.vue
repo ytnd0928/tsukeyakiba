@@ -187,7 +187,7 @@
                     </p>
                     <div class="work-tags">
                       <v-chip size="small" color="primary" variant="outlined">都市風景</v-chip>
-                      <v-chip size="small" color="secondary" variant="outlined">諸行無常</v-chip>
+                      <v-chip size="small" color="success" variant="outlined">諸行無常</v-chip>
                       <v-chip size="small" color="accent" variant="outlined">風景写真</v-chip>
                     </div>
                     <div class="work-action">
@@ -209,7 +209,7 @@
                     </p>
                     <div class="work-tags">
                       <v-chip size="small" color="primary" variant="outlined">人物写真</v-chip>
-                      <v-chip size="small" color="secondary" variant="outlined">ポートレート</v-chip>
+                      <v-chip size="small" color="warning" variant="outlined">ポートレート</v-chip>
                       <v-chip size="small" color="accent" variant="outlined">表情</v-chip>
                     </div>
                     <div class="work-action">
